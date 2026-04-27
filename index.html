@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maison Málaga — L'art de s'installer sur la Costa del Sol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+/* ─── Design tokens — warm tinted palette, never pure black ─── */
+:root {
+  --sand:       #F4EFE7;
+  --sand-deep:  #E8E0D2;
+  --warm-white: #FAF7F2;
+  --paper:      #FBF8F3;
+  --terracotta: #C2613A;
+  --terra-lt:   #E89A6F;
+  --navy:       #1F2A3D;
+  --navy-soft:  #2C3A52;
+  --olive:      #6B7449;
+  --ink:        #1A1814;
+  --ink-soft:   #4A4640;
+  --hair:       rgba(26,24,20,0.12);
+  --hair-soft:  rgba(26,24,20,0.06);
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+  background: var(--warm-white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Film grain — fixed overlay, no interaction */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* ─── Cinematic hero CSS ─── */
+.serif-italic {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.liquid-glass {
+  background: rgba(255,255,255,0.01);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+.liquid-glass:hover { background: rgba(255,255,255,0.06); }
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(180deg,
+    rgba(255,255,255,0.45) 0%,rgba(255,255,255,0.15) 20%,
+    rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 80%,rgba(255,255,255,0.45) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.bottom-blur {
+  -webkit-backdrop-filter: blur(14px) saturate(108%);
+  backdrop-filter: blur(14px) saturate(108%);
+  -webkit-mask-image: linear-gradient(to top, black 0%, rgba(0,0,0,0.6) 18%, transparent 42%);
+  mask-image: linear-gradient(to top, black 0%, rgba(0,0,0,0.6) 18%, transparent 42%);
+}
+.bottom-darken {
+  background: linear-gradient(to top,
+    rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.50) 18%, rgba(0,0,0,0.22) 38%, rgba(0,0,0,0) 62%);
+}
+.top-scrim {
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0) 100%);
+}
+.vignette {
+  background: radial-gradient(ellipse at 50% 60%,
+    rgba(0,0,0,0) 45%, rgba(0,0,0,0.25) 80%, rgba(0,0,0,0.55) 100%);
+}
+.text-lift      { text-shadow: 0 1px 2px rgba(0,0,0,0.35), 0 2px 12px rgba(0,0,0,0.25); }
+.text-lift-strong { text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 4px 24px rgba(0,0,0,0.35); }
+
+@keyframes blurFadeUp {
+  from { opacity: 0; filter: blur(20px); transform: translateY(40px); }
+  to   { opacity: 1; filter: blur(0);    transform: translateY(0); }
+}
+.animate-blur-fade-up { opacity: 0; animation: blurFadeUp 1s ease-out forwards; }
+
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.15); }
+}
+.video-ken-burns { animation: slowZoom 30s ease-in-out infinite alternate; }
+
+@keyframes arrowBounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ─── Scroll reveal — blur-fade-up, spring easing (no bounce per impeccable) ─── */
+@keyframes sectionReveal {
+  from { opacity: 0; filter: blur(6px); transform: translateY(28px); }
+  to   { opacity: 1; filter: blur(0);   transform: translateY(0); }
+}
+.sr { opacity: 0; }
+.sr.visible          { animation: sectionReveal 0.85s cubic-bezier(0.22,1,0.36,1) both; }
+.sr.sr-d1.visible    { animation-delay: 0.09s; }
+.sr.sr-d2.visible    { animation-delay: 0.18s; }
+.sr.sr-d3.visible    { animation-delay: 0.27s; }
+
+/* ─── Layout ─── */
+.container        { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 960px;  margin: 0 auto; padding: 0 32px; }
+@media (max-width: 640px) { .container, .container-narrow { padding: 0 20px; } }
+
+section.ed { padding: 120px 0; position: relative; }
+@media (max-width: 768px) { section.ed { padding: 80px 0; } }
+
+/* Eyebrow label — JetBrains Mono, tinted */
+.eyebrow { display: flex; align-items: center; gap: 14px; color: var(--ink-soft); margin-bottom: 28px; }
+.eyebrow .n   { font-family: 'JetBrains Mono',monospace; font-size:.72rem; color:var(--terracotta); letter-spacing:.08em; }
+.eyebrow .lbl { font-family: 'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; }
+.eyebrow .bar { flex:1; height:1px; background:var(--hair); max-width:80px; }
+
+/* Section titles — Cormorant, editorial sizing */
+h2.stitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.08; letter-spacing: -0.018em;
+  color: var(--ink); max-width: 18ch; margin-bottom: 28px;
+}
+h2.stitle em { font-style: italic; color: var(--terracotta); }
+.slead { font-size: 1.05rem; line-height: 1.65; color: var(--ink-soft); max-width: 56ch; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 28px; border-radius: 999px;
+  font-family: 'Manrope',sans-serif; font-size: .9rem; font-weight: 500;
+  text-decoration: none; cursor: pointer;
+  transition: all 0.25s ease; border: 1px solid transparent;
+}
+.btn .arr { transition: transform 0.25s; }
+.btn:hover .arr { transform: translateX(3px); }
+.btn-p { background: var(--ink); color: var(--paper); }
+.btn-p:hover { background: var(--terracotta); transform: translateY(-1px); }
+.btn-s { background: transparent; color: var(--ink); border-color: var(--hair); }
+.btn-s:hover { border-color: var(--ink); background: var(--sand); }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ─── Problems ─── */
+.problems { background:var(--sand); border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+.prob-head { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:72px; }
+.prob-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); }
+.prob-card { background:var(--sand); padding:40px 36px; transition:background 0.3s ease; cursor:default; }
+.prob-card:hover { background:var(--paper); }
+.prob-card .n { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--terracotta); letter-spacing:.1em; margin-bottom:24px; display:block; }
+.prob-card p { font-family:'Cormorant Garamond',serif; font-size:1.45rem; line-height:1.25; color:var(--ink); letter-spacing:-.01em; }
+@media (max-width:880px) { .prob-head{grid-template-columns:1fr;gap:24px} .prob-grid{grid-template-columns:1fr} }
+@media (max-width:1080px) and (min-width:881px) { .prob-grid{grid-template-columns:repeat(2,1fr)} }
+
+/* ─── Positioning / Notre histoire ─── */
+.pos-grid { display:grid; grid-template-columns:1fr 1.15fr; gap:80px; align-items:center; }
+.portrait {
+  aspect-ratio:4/5; border-radius:4px; overflow:hidden; position:relative;
+  background:
+    repeating-linear-gradient(135deg,rgba(31,42,61,.06) 0px,rgba(31,42,61,.06) 1px,transparent 1px,transparent 14px),
+    linear-gradient(160deg,#E8DFD0 0%,#D4C8B5 100%);
+}
+.portrait-lbl {
+  position:absolute; bottom:20px; left:20px; right:20px;
+  background:rgba(31,42,61,.88); color:var(--paper);
+  padding:10px 14px; border-radius:2px;
+  font-family:'JetBrains Mono',monospace; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; line-height:1.4;
+}
+.quote-block { margin-top:48px; padding:32px 0 0; border-top:1px solid var(--hair); max-width:480px; }
+.quote-block blockquote { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.55rem; line-height:1.4; color:var(--ink); letter-spacing:-.01em; margin-bottom:20px; }
+.quote-block .author { font-size:.82rem; color:var(--ink-soft); letter-spacing:.06em; }
+.quote-block .author strong { color:var(--ink); font-weight:500; }
+@media (max-width:880px) { .pos-grid{grid-template-columns:1fr;gap:48px} .portrait{max-height:420px;aspect-ratio:auto} }
+
+/* ─── Services ─── */
+.services { background:var(--navy); color:var(--paper); }
+.services .eyebrow,.services .eyebrow .lbl { color:rgba(250,247,242,.6); }
+.services .eyebrow .bar { background:rgba(250,247,242,.15); }
+.services h2.stitle { color:var(--paper); }
+.services h2.stitle em { color:var(--terra-lt); }
+.services .slead { color:rgba(250,247,242,.7); }
+.svc-head { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:80px; }
+.svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(250,247,242,.1); border:1px solid rgba(250,247,242,.1); }
+.svc { background:var(--navy); padding:44px 36px; transition:background 0.3s ease; }
+.svc:hover { background:var(--navy-soft); }
+.svc .n { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--terra-lt); letter-spacing:.1em; display:block; margin-bottom:24px; }
+.svc h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.7rem; line-height:1.2; color:var(--paper); margin-bottom:18px; letter-spacing:-.01em; }
+.svc p  { font-size:.93rem; line-height:1.6; color:rgba(250,247,242,.65); }
+@media (max-width:1080px) { .svc-grid{grid-template-columns:repeat(2,1fr)} .svc-head{grid-template-columns:1fr;gap:24px} }
+@media (max-width:680px)  { .svc-grid{grid-template-columns:1fr} }
+
+/* ─── Destinations ─── */
+.geo-head { text-align:center; margin-bottom:80px; }
+.geo-head h2 { margin:0 auto; max-width:22ch; }
+.geo-head .slead { margin:24px auto 0; }
+.geo-head .eyebrow { justify-content:center; }
+.geo-head .eyebrow .bar { max-width:40px; }
+.route { position:relative; margin-top:80px; }
+.route-line { position:absolute; top:50%; left:0; right:0; height:1px; background:var(--hair); transform:translateY(-8px); }
+.route-list { display:flex; justify-content:space-between; list-style:none; position:relative; flex-wrap:wrap; gap:24px 0; }
+.route-list li { flex:1; min-width:100px; text-align:center; position:relative; }
+.route-list li::before { content:""; width:11px; height:11px; border-radius:50%; background:var(--paper); border:1.5px solid var(--ink); display:block; margin:0 auto 18px; position:relative; z-index:2; }
+.route-list li.feat::before { background:var(--terracotta); border-color:var(--terracotta); box-shadow:0 0 0 6px rgba(194,97,58,.12); }
+.route-list li .city { font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--ink); letter-spacing:-.005em; margin-bottom:4px; }
+.route-list li.feat .city { color:var(--terracotta); font-style:italic; }
+.route-list li .lbl { font-family:'JetBrains Mono',monospace; font-size:.62rem; letter-spacing:.12em; color:var(--ink-soft); text-transform:uppercase; }
+@media (max-width:880px) {
+  .route-line{display:none}
+  .route-list{flex-direction:column;align-items:flex-start;gap:24px;border-left:1px solid var(--hair);padding-left:32px}
+  .route-list li{text-align:left;width:100%}
+  .route-list li::before{position:absolute;left:-38px;top:4px;margin:0}
+}
+
+/* ─── Why / Comparison ─── */
+.why { background:var(--sand); border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+.why-head { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:80px; }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.compare-col { padding:44px 40px; background:var(--paper); border-radius:4px; }
+.compare-col.alone { background:transparent; border:1px solid var(--hair); }
+.compare-col .lbl { font-family:'JetBrains Mono',monospace; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:12px; }
+.compare-col h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.85rem; color:var(--ink); margin-bottom:32px; letter-spacing:-.01em; }
+.compare-col.with h3 em { font-style:italic; color:var(--terracotta); }
+.compare-col ul { list-style:none; }
+.compare-col ul li { padding:14px 0; border-top:1px solid var(--hair); font-size:.95rem; display:flex; gap:14px; align-items:center; color:var(--ink); }
+.compare-col ul li:first-child { border-top:0; }
+.compare-col.alone ul li::before { content:"—"; color:var(--ink-soft); font-family:'JetBrains Mono',monospace; font-size:.85rem; width:16px; }
+.compare-col.with  ul li::before { content:"+";  color:var(--terracotta); font-family:'JetBrains Mono',monospace; font-size:1.1rem; width:16px; }
+@media (max-width:880px) { .why-head{grid-template-columns:1fr;gap:24px} .compare{grid-template-columns:1fr;gap:16px} }
+
+/* ─── Process / Méthode ─── */
+.proc-head { margin-bottom:80px; max-width:720px; }
+.proc-list { list-style:none; border-top:1px solid var(--hair); }
+.proc-step { display:grid; grid-template-columns:80px 1fr 1.5fr; gap:40px; padding:36px 0; border-bottom:1px solid var(--hair); align-items:baseline; transition:background 0.25s ease, padding-left 0.25s ease, padding-right 0.25s ease; }
+.proc-step:hover { background:var(--sand); padding-left:16px; padding-right:16px; }
+.proc-step .n { font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--terracotta); letter-spacing:.12em; }
+.proc-step h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.85rem; color:var(--ink); letter-spacing:-.01em; line-height:1.15; }
+.proc-step p  { font-size:.97rem; line-height:1.6; color:var(--ink-soft); max-width:56ch; }
+@media (max-width:880px) { .proc-step{grid-template-columns:1fr;gap:12px;padding:28px 0} .proc-step:hover{padding:28px 12px} }
+
+/* ─── Audience ─── */
+.audience { background:var(--olive); color:var(--paper); }
+.audience .eyebrow,.audience .eyebrow .lbl { color:rgba(250,247,242,.7); }
+.audience .eyebrow .bar { background:rgba(250,247,242,.2); }
+.audience h2.stitle { color:var(--paper); }
+.aud-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:80px; align-items:start; }
+.aud-list { list-style:none; counter-reset:aud; }
+.aud-list li {
+  padding:24px 0; border-top:1px solid rgba(250,247,242,.18);
+  counter-increment:aud; display:grid; grid-template-columns:60px 1fr; gap:24px; align-items:baseline;
+  font-family:'Cormorant Garamond',serif; font-size:1.4rem; line-height:1.3; color:var(--paper); letter-spacing:-.005em;
+}
+.aud-list li::before { content:"0" counter(aud); font-family:'JetBrains Mono',monospace; font-size:.72rem; color:rgba(250,247,242,.55); letter-spacing:.12em; }
+.aud-list li:last-child { border-bottom:1px solid rgba(250,247,242,.18); }
+@media (max-width:880px) { .aud-grid{grid-template-columns:1fr;gap:40px} .aud-list li{grid-template-columns:40px 1fr;gap:16px;font-size:1.2rem} }
+
+/* ─── FAQ ─── */
+.faq-list { border-top:1px solid var(--hair); }
+details.faq { border-bottom:1px solid var(--hair); padding:32px 0; }
+details.faq summary { display:flex; justify-content:space-between; align-items:flex-start; gap:32px; list-style:none; cursor:pointer; }
+details.faq summary::-webkit-details-marker { display:none; }
+details.faq summary h3 { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.55rem; line-height:1.3; color:var(--ink); letter-spacing:-.005em; flex:1; }
+.faq-tog { font-family:'JetBrains Mono',monospace; font-size:1.1rem; color:var(--terracotta); flex-shrink:0; width:28px; height:28px; display:flex; align-items:center; justify-content:center; transition:transform 0.3s ease; }
+details.faq[open] .faq-tog { transform:rotate(45deg); }
+.faq-ans { margin-top:20px; font-size:1rem; line-height:1.65; color:var(--ink-soft); max-width:64ch; padding-right:60px; }
+
+/* ─── Final CTA ─── */
+.final-cta { background:var(--ink); color:var(--paper); padding:140px 0; position:relative; overflow:hidden; }
+.final-cta::before {
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 80% 20%,rgba(194,97,58,.18) 0%,transparent 50%),
+    radial-gradient(ellipse at 10% 80%,rgba(107,116,73,.12) 0%,transparent 50%);
+}
+.final-cta .container { position:relative; z-index:1; text-align:center; }
+.final-cta h2.stitle { color:var(--paper); margin:0 auto 32px; }
+.final-cta h2.stitle em { color:var(--terra-lt); }
+.final-cta p { color:rgba(250,247,242,.7); font-size:1.1rem; line-height:1.6; max-width:52ch; margin:0 auto 48px; }
+.final-cta .cta-row { justify-content:center; }
+.final-cta .btn-p { background:var(--paper); color:var(--ink); }
+.final-cta .btn-p:hover { background:var(--terracotta); color:var(--paper); }
+.final-cta .btn-s { border-color:rgba(250,247,242,.25); color:var(--paper); }
+.final-cta .btn-s:hover { border-color:var(--paper); background:rgba(250,247,242,.05); }
+
+/* ─── Footer ─── */
+footer { background:var(--paper); padding:80px 0 40px; border-top:1px solid var(--hair); }
+.foot-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; margin-bottom:60px; }
+.foot-brand .mark { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:2.2rem; color:var(--ink); letter-spacing:-.01em; margin-bottom:16px; display:block; }
+.foot-brand p { font-size:.95rem; color:var(--ink-soft); line-height:1.6; max-width:38ch; margin-bottom:24px; }
+.foot-cities { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); line-height:1.8; }
+.foot-col h4 { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:20px; }
+.foot-col a { display:block; color:var(--ink); text-decoration:none; font-size:.95rem; margin-bottom:12px; transition:color .2s ease; }
+.foot-col a:hover { color:var(--terracotta); }
+.foot-btm { padding-top:32px; border-top:1px solid var(--hair); display:flex; justify-content:space-between; align-items:center; font-size:.82rem; color:var(--ink-soft); flex-wrap:wrap; gap:16px; }
+.foot-btm a { color:var(--ink-soft); text-decoration:none; }
+.foot-btm a:hover { color:var(--terracotta); }
+@media (max-width:768px) { .foot-grid{grid-template-columns:1fr;gap:40px} }
+</style>
+</head>
+<body>
+
+<!-- ─── CINEMATIC HERO (React, 100svh) ─── -->
+<div id="root"></div>
+
+<!-- ─── EDITORIAL SECTIONS ─── -->
+<main id="content">
+
+  <!-- 01 · Problèmes -->
+  <section class="ed problems">
+    <div class="container">
+      <div class="prob-head sr">
+        <div>
+          <div class="eyebrow"><span class="n">01</span><span class="bar"></span><span class="lbl">Le projet</span></div>
+          <h2 class="stitle">Vous rêvez de vivre au soleil… <em>mais par où commencer ?</em></h2>
+        </div>
+        <p class="slead">S'installer en Espagne peut sembler simple depuis la France. Mais une fois le projet concret, les questions arrivent vite — et elles méritent des réponses précises.</p>
+      </div>
+      <div class="prob-grid sr sr-d1">
+        <div class="prob-card"><span class="n">i. Famille</span><p>Dans quelle ville vivre avec des enfants ?</p></div>
+        <div class="prob-card"><span class="n">ii. Location</span><p>Comment louer sans fiche de paie espagnole ?</p></div>
+        <div class="prob-card"><span class="n">iii. Sécurité</span><p>Comment éviter les fausses annonces ?</p></div>
+        <div class="prob-card"><span class="n">iv. Budget</span><p>Quels quartiers sont adaptés à votre budget ?</p></div>
+        <div class="prob-card"><span class="n">v. Distance</span><p>Comment organiser des visites depuis la France ?</p></div>
+        <div class="prob-card"><span class="n">vi. Contrats</span><p>Comment comprendre les contrats et les frais ?</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · Notre histoire -->
+  <section class="ed" id="histoire">
+    <div class="container">
+      <div class="pos-grid">
+        <div class="portrait sr">
+          <div class="portrait-lbl">Portrait fondatrice · Lumière naturelle · Cadrage éditorial · Málaga</div>
+        </div>
+        <div class="sr sr-d1">
+          <div class="eyebrow"><span class="n">02</span><span class="bar"></span><span class="lbl">Notre rôle</span></div>
+          <h2 class="stitle">Comme avoir une <em>personne de confiance</em> sur place.</h2>
+          <p class="slead">Notre rôle est de vous aider à prendre les bonnes décisions avant votre arrivée. Nous connaissons les réalités du terrain : les distances, les quartiers, les écoles, les budgets, les annonces sérieuses et les pièges à éviter.</p>
+          <div class="quote-block">
+            <blockquote>« Nous accompagnons chaque projet comme si c'était notre propre installation. »</blockquote>
+            <p class="author"><strong>Céline</strong> — Fondatrice, basée à Málaga depuis 2019</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · Services -->
+  <section class="ed services" id="services">
+    <div class="container">
+      <div class="svc-head sr">
+        <div>
+          <div class="eyebrow"><span class="n" style="color:var(--terra-lt)">03</span><span class="bar"></span><span class="lbl">Accompagnement</span></div>
+          <h2 class="stitle">Ce que nous faisons <em>pour vous.</em></h2>
+        </div>
+        <p class="slead">Six étapes claires, pensées pour vous faire gagner du temps, éviter les erreurs coûteuses et aborder votre installation avec sérénité.</p>
+      </div>
+      <div class="svc-grid sr sr-d1">
+        <article class="svc"><span class="n">— 01</span><h3>Comprendre votre projet</h3><p>Nous échangeons avec vous pour comprendre votre situation, votre budget, votre calendrier et vos priorités familiales.</p></article>
+        <article class="svc"><span class="n">— 02</span><h3>Choisir la bonne zone</h3><p>Nous vous aidons à comparer Málaga, Benalmádena, Fuengirola, Marbella, Estepona selon votre style de vie.</p></article>
+        <article class="svc"><span class="n">— 03</span><h3>Préparer votre dossier</h3><p>Nous vous aidons à présenter un dossier clair et rassurant pour les propriétaires ou agences locales.</p></article>
+        <article class="svc"><span class="n">— 04</span><h3>Rechercher &amp; filtrer</h3><p>Nous sélectionnons les annonces pertinentes, vérifions les informations et écartons les offres douteuses.</p></article>
+        <article class="svc"><span class="n">— 05</span><h3>Visiter pour vous</h3><p>Si vous êtes encore en France, nous pouvons visiter les logements, filmer les lieux et vous donner un avis honnête.</p></article>
+        <article class="svc"><span class="n">— 06</span><h3>Jusqu'aux clés</h3><p>Nous vous aidons à comprendre les conditions, le contrat, la caution et les étapes jusqu'à la remise des clés.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · Destinations -->
+  <section class="ed" id="destinations" style="background:var(--paper)">
+    <div class="container">
+      <div class="geo-head sr">
+        <div class="eyebrow"><span class="n">04</span><span class="bar"></span><span class="lbl">Territoire</span><span class="bar"></span></div>
+        <h2 class="stitle">De Málaga à Estepona, trouvez l'<em>endroit qui vous correspond.</em></h2>
+        <p class="slead">L'objectif n'est pas seulement de trouver un logement. L'objectif est de trouver le bon endroit pour votre nouvelle vie.</p>
+      </div>
+      <div class="route sr sr-d1">
+        <div class="route-line"></div>
+        <ul class="route-list">
+          <li class="feat"><div class="city">Málaga</div><div class="lbl">Capitale</div></li>
+          <li><div class="city">Torremolinos</div><div class="lbl">10 km</div></li>
+          <li><div class="city">Benalmádena</div><div class="lbl">20 km</div></li>
+          <li><div class="city">Fuengirola</div><div class="lbl">30 km</div></li>
+          <li><div class="city">Mijas</div><div class="lbl">35 km</div></li>
+          <li class="feat"><div class="city">Marbella</div><div class="lbl">55 km</div></li>
+          <li><div class="city">San Pedro</div><div class="lbl">65 km</div></li>
+          <li class="feat"><div class="city">Estepona</div><div class="lbl">80 km</div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · Pourquoi -->
+  <section class="ed why">
+    <div class="container">
+      <div class="why-head sr">
+        <div>
+          <div class="eyebrow"><span class="n">05</span><span class="bar"></span><span class="lbl">Comparaison</span></div>
+          <h2 class="stitle">Chercher seul peut <em>coûter cher.</em></h2>
+        </div>
+        <p class="slead">Un mauvais quartier, un voyage inutile, une annonce trompeuse, un dossier refusé ou un contrat mal compris peuvent transformer une belle aventure en source de stress.</p>
+      </div>
+      <div class="compare sr sr-d1">
+        <div class="compare-col alone">
+          <div class="lbl">Sans accompagnement</div>
+          <h3>Chercher seul</h3>
+          <ul>
+            <li>Temps perdu</li><li>Risque d'erreur</li><li>Informations dispersées</li>
+            <li>Visites compliquées à distance</li><li>Incertitude sur les zones</li>
+          </ul>
+        </div>
+        <div class="compare-col with">
+          <div class="lbl">Avec Maison Málaga</div>
+          <h3>Être <em>accompagné</em></h3>
+          <ul>
+            <li>Vision locale</li><li>Sélection plus sûre</li><li>Gain de temps</li>
+            <li>Accompagnement en français</li><li>Décisions plus sereines</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 · Méthode -->
+  <section class="ed" id="methode">
+    <div class="container">
+      <div class="proc-head sr">
+        <div class="eyebrow"><span class="n">06</span><span class="bar"></span><span class="lbl">Méthode</span></div>
+        <h2 class="stitle">Comment <em>ça marche ?</em></h2>
+        <p class="slead">Cinq étapes pour passer du projet à la remise des clés, en toute confiance.</p>
+      </div>
+      <ol class="proc-list sr sr-d1">
+        <li class="proc-step"><span class="n">→ 01</span><h3>Premier appel</h3><p>Nous faisons le point sur votre projet, votre timing, votre budget et vos priorités.</p></li>
+        <li class="proc-step"><span class="n">→ 02</span><h3>Stratégie d'installation</h3><p>Nous définissons les villes et quartiers les plus adaptés à votre situation.</p></li>
+        <li class="proc-step"><span class="n">→ 03</span><h3>Recherche active</h3><p>Nous recherchons, filtrons et analysons les logements disponibles.</p></li>
+        <li class="proc-step"><span class="n">→ 04</span><h3>Visites &amp; sélection</h3><p>Nous organisons les visites physiques ou en vidéo et vous aidons à comparer les options.</p></li>
+        <li class="proc-step"><span class="n">→ 05</span><h3>Installation</h3><p>Nous vous accompagnons jusqu'à la remise des clés et vos premières démarches locales.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 07 · Audience -->
+  <section class="ed audience">
+    <div class="container">
+      <div class="aud-grid">
+        <div class="sr">
+          <div class="eyebrow"><span class="n" style="color:rgba(250,247,242,.7)">07</span><span class="bar"></span><span class="lbl">Pour qui</span></div>
+          <h2 class="stitle">Ce service est fait pour vous <em>si…</em></h2>
+        </div>
+        <ul class="aud-list sr sr-d1">
+          <li>Vous vivez encore en France et préparez votre arrivée en Espagne.</li>
+          <li>Vous avez des enfants et voulez choisir une zone adaptée à la vie de famille.</li>
+          <li>Vous ne connaissez pas bien le marché immobilier espagnol.</li>
+          <li>Vous avez peur de vous tromper de quartier.</li>
+          <li>Vous voulez éviter les arnaques et les mauvaises surprises.</li>
+          <li>Vous cherchez un accompagnement humain, pas seulement une liste d'annonces.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · FAQ / Témoignages -->
+  <section class="ed" id="faq">
+    <div class="container-narrow">
+      <div style="margin-bottom:64px" class="sr">
+        <div class="eyebrow"><span class="n">08</span><span class="bar"></span><span class="lbl">Questions fréquentes</span></div>
+        <h2 class="stitle">Questions <em>fréquentes.</em></h2>
+      </div>
+      <div class="faq-list sr sr-d1">
+        <details class="faq" open>
+          <summary><h3>Puis-je louer en Espagne sans fiche de paie espagnole ?</h3><span class="faq-tog">+</span></summary>
+          <div class="faq-ans">Oui, c'est possible dans certains cas. Il faut présenter un dossier solide : revenus, épargne, contrat de travail, activité indépendante, garanties ou paiement anticipé selon les situations.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>Est-ce que je peux chercher un logement depuis la France ?</h3><span class="faq-tog">+</span></summary>
+          <div class="faq-ans">Oui. Nous pouvons présélectionner les biens, faire des visites vidéo et vous éviter de voyager inutilement.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>Quelle est la meilleure ville pour vivre en famille sur la Costa del Sol ?</h3><span class="faq-tog">+</span></summary>
+          <div class="faq-ans">Cela dépend de vos priorités : école, budget, distance avec Málaga, plage, calme, transport ou vie sociale. Nous vous aidons à identifier la zone qui correspond vraiment à votre quotidien.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>Est-ce que vous êtes une agence immobilière ?</h3><span class="faq-tog">+</span></summary>
+          <div class="faq-ans">Non. Nous sommes un service d'accompagnement à l'installation. Nous vous aidons à chercher, comprendre, vérifier, comparer et avancer avec plus de sécurité.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>Travaillez-vous uniquement à Málaga ?</h3><span class="faq-tog">+</span></summary>
+          <div class="faq-ans">Nous accompagnons principalement les projets entre Málaga et Estepona, en couvrant toutes les villes intermédiaires de la Costa del Sol.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="final-cta" id="contact">
+    <div class="container">
+      <div class="eyebrow sr" style="justify-content:center;color:rgba(250,247,242,.6)">
+        <span class="bar" style="background:rgba(250,247,242,.3);max-width:40px"></span>
+        <span class="lbl">Premier contact</span>
+        <span class="bar" style="background:rgba(250,247,242,.3);max-width:40px"></span>
+      </div>
+      <h2 class="stitle sr sr-d1">Prêt à préparer votre <em>nouvelle vie</em> sur la Costa del Sol ?</h2>
+      <p class="sr sr-d2">Parlez-nous de votre projet et nous vous dirons honnêtement comment nous pouvons vous aider.</p>
+      <div class="cta-row sr sr-d3">
+        <a href="#" class="btn btn-p">Planifier un premier appel <span class="arr">→</span></a>
+        <a href="#" class="btn btn-s">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <span class="mark">Maison Málaga</span>
+          <p>Relocation et accompagnement pour familles françaises sur la Costa del Sol.</p>
+          <div class="foot-cities">Málaga · Benalmádena · Fuengirola<br>Marbella · Estepona</div>
+        </div>
+        <div class="foot-col">
+          <h4>Navigation</h4>
+          <a href="#histoire">Notre histoire</a>
+          <a href="#methode">Méthode</a>
+          <a href="#destinations">Destinations</a>
+          <a href="#faq">Questions</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="#">hello@maisonmalaga.com</a>
+          <a href="#">WhatsApp · +34 ··· ··· ···</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+      <div class="foot-btm">
+        <div>© 2026 Maison Málaga — Tous droits réservés.</div>
+        <div style="display:flex;gap:24px">
+          <a href="#">Mentions légales</a>
+          <a href="#">Confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- ─── REACT HERO ─── -->
+<script type="text/babel">
+  const { useState, useEffect } = React;
+
+  const Icon = ({ d, size=18, fill="none", stroke="currentColor", strokeWidth=1.8, className="" }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24"
+      fill={fill} stroke={stroke} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className}>
+      {d}
+    </svg>
+  );
+  const SearchIcon   = p => <Icon {...p} d={<><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></>}/>;
+  const UserIcon     = p => <Icon {...p} d={<><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></>}/>;
+  const MenuIcon     = p => <Icon {...p} d={<><line x1="4" y1="6"  x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></>}/>;
+  const XIcon        = p => <Icon {...p} d={<><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></>}/>;
+  const StarIcon     = p => <Icon {...p} d={<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>}/>;
+  const ClockIcon    = p => <Icon {...p} d={<><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>}/>;
+  const CalendarIcon = p => <Icon {...p} d={<><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></>}/>;
+  const PlayIcon     = p => <Icon {...p} d={<polygon points="5 3 19 12 5 21 5 3"/>}/>;
+  const ChevronLeft  = p => <Icon {...p} d={<polyline points="15 18 9 12 15 6"/>}/>;
+  const ChevronRight = p => <Icon {...p} d={<polyline points="9 18 15 12 9 6"/>}/>;
+  const MapPinIcon   = p => <Icon {...p} d={<><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></>}/>;
+  const SparklesIcon = p => <Icon {...p} d={<><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></>}/>;
+
+  const SCENES = [
+    { id:1, city:"Málaga",   label:"Capitale culturelle",      duration:"3 jours", season:"Avril, 2026",
+      title:{line1:"Vivre au soleil,",    line2:"sans le stress."},      stat:"9.4/10", statLabel:"FAMILLES FR",
+      desc:"Un accompagnement local et 100% en français pour trouver votre logement entre Málaga et Estepona." },
+    { id:2, city:"Marbella", label:"Élégance méditerranéenne", duration:"55 km",   season:"Toute l'année",
+      title:{line1:"Choisir le bon",      line2:"endroit, ensemble."},   stat:"120+",   statLabel:"PROJETS",
+      desc:"Quartiers, écoles, budgets, distances — nous connaissons les réalités du terrain mieux que personne." },
+    { id:3, city:"Estepona", label:"Charme andalou",           duration:"80 km",   season:"Le jardin de la Costa",
+      title:{line1:"Visiter à distance,", line2:"décider sereinement."}, stat:"100%",   statLabel:"FRANÇAIS",
+      desc:"Visites en vidéo, dossiers solides, contrats expliqués. Tout est pensé pour vous éviter les mauvaises surprises." },
+    { id:4, city:"Mijas",    label:"Le balcon de la Costa",    duration:"35 km",   season:"Vue sur la mer",
+      title:{line1:"Une nouvelle vie",    line2:"vous attend."},         stat:"5★",     statLabel:"AVIS GOOGLE",
+      desc:"De la première recherche jusqu'à la remise des clés — nous accompagnons chaque étape de votre installation." }
+  ];
+
+  const NAV_LINKS = [
+    {label:"Notre histoire", href:"#histoire"},
+    {label:"Méthode",        href:"#methode"},
+    {label:"Destinations",   href:"#destinations"},
+    {label:"Témoignages",    href:"#faq"},
+    {label:"Contact",        href:"#contact"}
+  ];
+
+  function App() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [sceneIdx, setSceneIdx] = useState(0);
+    const [animKey,  setAnimKey]  = useState(0);
+    const scene = SCENES[sceneIdx];
+
+    const goNext = () => { setSceneIdx(i=>(i+1)%SCENES.length); setAnimKey(k=>k+1); };
+    const goPrev = () => { setSceneIdx(i=>(i-1+SCENES.length)%SCENES.length); setAnimKey(k=>k+1); };
+
+    useEffect(() => { const id = setInterval(goNext, 9000); return () => clearInterval(id); }, []);
+
+    return (
+      <div className="relative w-screen overflow-hidden bg-black" style={{height:'100svh'}}>
+
+        {/* Video — absolute within hero (not fixed), prevents bleeding into editorial */}
+        <video
+          ref={el => {
+            if (el && !el.dataset.bound) {
+              el.dataset.bound='1';
+              const tryPlay = () => el.play().catch(()=>{});
+              tryPlay();
+              document.addEventListener('touchstart', tryPlay, {once:true});
+              document.addEventListener('click', tryPlay, {once:true});
+            }
+          }}
+          autoPlay loop muted playsInline preload="auto"
+          webkit-playsinline="true" x5-playsinline="true"
+          src="video.mp4"
+          className="absolute inset-0 w-full h-full object-cover video-ken-burns"
+          style={{zIndex:0, backgroundColor:'#1a1410'}}
+        />
+        <div className="absolute inset-0 pointer-events-none" style={{zIndex:-1, background:'linear-gradient(135deg,#2a1810 0%,#4a2818 40%,#c2613a 100%)'}}/>
+
+        {/* Layered overlays — all absolute, pointer-events none */}
+        <div className="absolute inset-0 vignette pointer-events-none"                        style={{zIndex:1}}/>
+        <div className="absolute top-0 left-0 right-0 h-32 top-scrim pointer-events-none"    style={{zIndex:2}}/>
+        <div className="absolute inset-0 bottom-blur pointer-events-none"                     style={{zIndex:2}}/>
+        <div className="absolute inset-x-0 bottom-0 h-[78vh] bottom-darken pointer-events-none" style={{zIndex:3}}/>
+
+        <div className="relative w-full h-full flex flex-col" style={{zIndex:10}}>
+
+          {/* NAVBAR */}
+          <nav className="relative flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 md:py-6" style={{zIndex:50}}>
+            <a href="#" className="animate-blur-fade-up flex items-baseline gap-2" style={{animationDelay:'0ms', textDecoration:'none'}}>
+              <span className="serif-italic text-2xl md:text-3xl text-white">Maison</span>
+              <span className="text-white text-[0.65rem] md:text-xs tracking-[0.25em] uppercase font-medium">Málaga</span>
+            </a>
+
+            <div className="hidden lg:flex items-center gap-9">
+              {NAV_LINKS.map((link,i) => (
+                <a key={link.label} href={link.href}
+                   className="text-sm text-white text-lift hover:text-white/80 transition-colors animate-blur-fade-up font-medium"
+                   style={{animationDelay:`${100+i*50}ms`, textDecoration:'none'}}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button className="hidden sm:flex liquid-glass items-center gap-2 rounded-full px-4 md:px-6 py-2 text-sm text-white animate-blur-fade-up font-medium" style={{animationDelay:'350ms'}}>
+                <SearchIcon size={16}/><span>Rechercher</span>
+              </button>
+              <button className="hidden sm:flex liquid-glass items-center justify-center w-10 h-10 rounded-full text-white animate-blur-fade-up" style={{animationDelay:'400ms'}} aria-label="Profil">
+                <UserIcon size={18}/>
+              </button>
+              <button onClick={()=>setMenuOpen(!menuOpen)}
+                className="lg:hidden flex liquid-glass items-center justify-center w-10 h-10 rounded-full text-white animate-blur-fade-up"
+                style={{animationDelay:'350ms'}} aria-label="Menu">
+                <div className="relative w-[18px] h-[18px]">
+                  <div className={`absolute inset-0 transition-all duration-500 ease-out ${menuOpen?'rotate-180 opacity-0 scale-50':'rotate-0 opacity-100 scale-100'}`}><MenuIcon size={18}/></div>
+                  <div className={`absolute inset-0 transition-all duration-500 ease-out ${menuOpen?'rotate-0 opacity-100 scale-100':'-rotate-180 opacity-0 scale-50'}`}><XIcon size={18}/></div>
+                </div>
+              </button>
+            </div>
+          </nav>
+
+          {/* MOBILE MENU */}
+          <div className={`lg:hidden absolute left-0 right-0 bg-gray-900/95 backdrop-blur-lg border-t border-b border-gray-800 shadow-2xl transition-all duration-500 ease-out ${menuOpen?'translate-y-0 opacity-100':'-translate-y-4 opacity-0 pointer-events-none'}`}
+               style={{top:'72px', zIndex:40}}>
+            <div className="flex flex-col px-4 sm:px-6 py-4">
+              {NAV_LINKS.map((link,i) => (
+                <a key={link.label} href={link.href} onClick={()=>setMenuOpen(false)}
+                   className={`py-3 px-3 rounded-lg hover:bg-gray-800/50 text-white text-sm font-medium transition-all duration-500 ease-out ${menuOpen?'translate-x-0 opacity-100':'translate-x-4 opacity-0'}`}
+                   style={{transitionDelay:menuOpen?`${i*50}ms`:'0ms', textDecoration:'none'}}>
+                  {link.label}
+                </a>
+              ))}
+              <div className="sm:hidden flex gap-2 pt-4 mt-2 border-t border-gray-800">
+                <button className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white flex-1 justify-center">
+                  <SearchIcon size={16}/><span>Rechercher</span>
+                </button>
+                <button className="liquid-glass flex items-center justify-center w-10 h-10 rounded-full text-white">
+                  <UserIcon size={18}/>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* HERO CONTENT */}
+          <div className="flex-1 flex flex-col justify-end px-4 sm:px-6 md:px-12 pb-8 md:pb-16" style={{zIndex:10}}>
+            <div key={`chip-${animKey}`} className="animate-blur-fade-up mb-6 md:mb-10 flex items-center gap-2" style={{animationDelay:'200ms'}}>
+              <div className="liquid-glass rounded-full px-4 py-2 flex items-center gap-2.5 text-xs sm:text-sm text-white">
+                <MapPinIcon size={14}/>
+                <span className="font-semibold">{scene.city}</span>
+                <span className="w-1 h-1 rounded-full bg-white/60"/>
+                <span className="text-white/85">{scene.label}</span>
+              </div>
+              <div className="hidden sm:flex liquid-glass rounded-full px-3 py-2 items-center gap-2 text-xs text-white">
+                <SparklesIcon size={12}/><span className="text-white/90 tracking-wider uppercase font-medium">Édition 2026</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row md:items-end gap-8">
+              <div className="flex-1">
+                <div key={`meta-${animKey}`} className="animate-blur-fade-up flex flex-wrap items-center gap-3 sm:gap-6 mb-6 md:mb-8 text-xs sm:text-sm text-white text-lift" style={{animationDelay:'300ms'}}>
+                  <div className="flex items-center gap-2"><StarIcon size={16} fill="white" stroke="white"/><span className="font-semibold">{scene.stat} <span className="text-white/75 font-normal tracking-wider text-[0.7rem] ml-1">{scene.statLabel}</span></span></div>
+                  <div className="flex items-center gap-2"><ClockIcon size={16}/><span>{scene.duration}</span></div>
+                  <div className="flex items-center gap-2"><CalendarIcon size={16}/><span>{scene.season}</span></div>
+                </div>
+
+                <h1 key={`title-${animKey}`}
+                    className="animate-blur-fade-up text-white text-lift-strong mb-4 md:mb-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal"
+                    style={{animationDelay:'400ms', letterSpacing:'-0.04em', lineHeight:1.02}}>
+                  {scene.title.line1}<br/>
+                  <span className="serif-italic">{scene.title.line2}</span>
+                </h1>
+
+                <p key={`desc-${animKey}`} className="animate-blur-fade-up text-base sm:text-lg md:text-xl text-white/90 text-lift mb-6 md:mb-12 max-w-2xl" style={{animationDelay:'500ms', lineHeight:1.5}}>
+                  {scene.desc}
+                </p>
+
+                <div className="flex flex-wrap gap-3 sm:gap-4">
+                  <a href="#contact"
+                     className="animate-blur-fade-up bg-white text-black hover:bg-gray-200 rounded-full font-medium px-6 sm:px-8 py-2.5 sm:py-3 flex items-center gap-2.5 text-sm sm:text-base transition-all"
+                     style={{animationDelay:'600ms', textDecoration:'none'}}>
+                    <PlayIcon size={18} fill="black" stroke="black"/><span>Planifier un appel</span>
+                  </a>
+                  <a href="#methode"
+                     className="animate-blur-fade-up liquid-glass rounded-full text-white font-medium px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
+                     style={{animationDelay:'700ms', textDecoration:'none'}}>
+                    Découvrir la méthode
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex md:flex-col items-start md:items-end gap-4 md:gap-6">
+                <div className="animate-blur-fade-up text-white order-2 md:order-1" style={{animationDelay:'750ms'}}>
+                  <div className="flex md:flex-col items-center md:items-end gap-3">
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="serif-italic text-3xl md:text-4xl">{String(sceneIdx+1).padStart(2,'0')}</span>
+                      <span className="text-white/70 text-sm">/ {String(SCENES.length).padStart(2,'0')}</span>
+                    </div>
+                    <div className="flex md:flex-col gap-1.5">
+                      {SCENES.map((_,i) => (
+                        <button key={i} onClick={()=>{setSceneIdx(i);setAnimKey(k=>k+1);}}
+                          className={`transition-all duration-500 rounded-full ${i===sceneIdx?'bg-white w-8 md:w-1 md:h-8':'bg-white/30 hover:bg-white/50 w-1.5 md:w-1 md:h-1.5'} h-1.5 md:h-1.5`}
+                          aria-label={`Scène ${i+1}`}/>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-2 sm:gap-3 order-1 md:order-2">
+                  <button onClick={goPrev} className="animate-blur-fade-up liquid-glass rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-center text-white" style={{animationDelay:'800ms'}} aria-label="Précédent"><ChevronLeft size={20}/></button>
+                  <button onClick={goNext} className="animate-blur-fade-up liquid-glass rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-center text-white" style={{animationDelay:'900ms'}} aria-label="Suivant"><ChevronRight size={20}/></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* SCROLL INDICATOR */}
+          <a href="#content" aria-label="Scroll"
+             className="animate-blur-fade-up hidden md:block text-white/50 hover:text-white/80 transition-colors"
+             style={{animationDelay:'1100ms', position:'absolute', bottom:'28px', left:'50%',
+                     transform:'translateX(-50%)', animation:'arrowBounce 2.5s ease-in-out infinite, blurFadeUp 1s ease-out 1.1s both'}}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+
+<!-- Scroll reveal — spring timing, no bounce -->
+<script>
+  const srObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); srObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
+  document.querySelectorAll('.sr').forEach(el => srObserver.observe(el));
+</script>
+</body>
+</html>
