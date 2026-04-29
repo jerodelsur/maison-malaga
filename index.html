@@ -25,6 +25,8 @@
   --olive:      #6B7449;
   --ink:        #1A1814;
   --ink-soft:   #4A4640;
+  --amber:      #E8B84B;
+  --amber-dk:   #C99A2E;
   --hair:       rgba(26,24,20,0.12);
   --hair-soft:  rgba(26,24,20,0.06);
 }
@@ -171,8 +173,8 @@ h2.stitle em { font-style: italic; color: var(--terracotta); }
 }
 .btn .arr { transition: transform 0.25s; }
 .btn:hover .arr { transform: translateX(3px); }
-.btn-p { background: var(--ink); color: var(--paper); }
-.btn-p:hover { background: var(--terracotta); transform: translateY(-1px); }
+.btn-p { background: var(--amber); color: var(--ink); }
+.btn-p:hover { background: var(--amber-dk); transform: translateY(-1px); }
 .btn-s { background: transparent; color: var(--ink); border-color: var(--hair); }
 .btn-s:hover { border-color: var(--ink); background: var(--sand); }
 .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -312,8 +314,8 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
 .final-cta h2.stitle em { color:var(--terra-lt); }
 .final-cta p { color:rgba(250,247,242,.7); font-size:1.1rem; line-height:1.6; max-width:52ch; margin:0 auto 48px; }
 .final-cta .cta-row { justify-content:center; }
-.final-cta .btn-p { background:var(--paper); color:var(--ink); }
-.final-cta .btn-p:hover { background:var(--terracotta); color:var(--paper); }
+.final-cta .btn-p { background:var(--amber); color:var(--ink); }
+.final-cta .btn-p:hover { background:var(--amber-dk); color:var(--ink); }
 .final-cta .btn-s { border-color:rgba(250,247,242,.25); color:var(--paper); }
 .final-cta .btn-s:hover { border-color:var(--paper); background:rgba(250,247,242,.05); }
 
@@ -848,9 +850,9 @@ footer { background:var(--paper); padding:80px 0 40px; border-top:1px solid var(
 
                 <div className="flex flex-wrap gap-3 sm:gap-4">
                   <a href="#contact"
-                     className="animate-blur-fade-up bg-white text-black hover:bg-gray-200 rounded-full font-medium px-6 sm:px-8 py-2.5 sm:py-3 flex items-center gap-2.5 text-sm sm:text-base transition-all"
+                     className="animate-blur-fade-up rounded-full font-medium px-6 sm:px-8 py-2.5 sm:py-3 flex items-center gap-2.5 text-sm sm:text-base transition-all" style={{background:'#E8B84B', color:'#1A1814'}}
                      style={{animationDelay:'600ms', textDecoration:'none'}}>
-                    <PlayIcon size={18} fill="black" stroke="black"/><span>Planifier un appel</span>
+                    <PlayIcon size={18} fill="#1A1814" stroke="#1A1814"/><span>Planifier un appel</span>
                   </a>
                   <a href="#methode"
                      className="animate-blur-fade-up liquid-glass rounded-full text-white font-medium px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
