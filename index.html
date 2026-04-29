@@ -780,12 +780,9 @@ footer { background:var(--paper); padding:80px 0 40px; border-top:1px solid var(
             </div>
 
             <div className="flex items-center gap-2 sm:gap-3">
-              <button className="hidden sm:flex liquid-glass items-center gap-2 rounded-full px-4 md:px-6 py-2 text-sm text-white animate-blur-fade-up font-medium" style={{animationDelay:'350ms'}}>
-                <SearchIcon size={16}/><span>Rechercher</span>
-              </button>
-              <button className="hidden sm:flex liquid-glass items-center justify-center w-10 h-10 rounded-full text-white animate-blur-fade-up" style={{animationDelay:'400ms'}} aria-label="Profil">
-                <UserIcon size={18}/>
-              </button>
+              <a href="#contact" className="hidden sm:flex liquid-glass items-center gap-2 rounded-full px-4 md:px-6 py-2 text-sm text-white animate-blur-fade-up font-medium" style={{animationDelay:'350ms', textDecoration:'none'}}>
+                <span>Planifier un appel</span>
+              </a>
               <button onClick={()=>setMenuOpen(!menuOpen)}
                 className="lg:hidden flex liquid-glass items-center justify-center w-10 h-10 rounded-full text-white animate-blur-fade-up"
                 style={{animationDelay:'350ms'}} aria-label="Menu">
@@ -808,13 +805,10 @@ footer { background:var(--paper); padding:80px 0 40px; border-top:1px solid var(
                   {link.label}
                 </a>
               ))}
-              <div className="sm:hidden flex gap-2 pt-4 mt-2 border-t border-gray-800">
-                <button className="liquid-glass flex items-center gap-2 rounded-full px-4 py-2 text-sm text-white flex-1 justify-center">
-                  <SearchIcon size={16}/><span>Rechercher</span>
-                </button>
-                <button className="liquid-glass flex items-center justify-center w-10 h-10 rounded-full text-white">
-                  <UserIcon size={18}/>
-                </button>
+              <div className="sm:hidden pt-4 mt-2 border-t border-gray-800">
+                <a href="#contact" onClick={()=>setMenuOpen(false)} className="liquid-glass flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm text-white w-full" style={{textDecoration:'none'}}>
+                  Planifier un appel
+                </a>
               </div>
             </div>
           </div>
