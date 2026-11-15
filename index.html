@@ -10,6 +10,8 @@
 <meta property="og:site_name" content="Maison à Málaga" />
 <meta property="og:title" content="S’installer à Málaga en famille, avec une Française qui vient de le faire" />
 <meta property="og:description" content="Céline a quitté Annecy pour Málaga en famille en octobre 2026. Ses guides pratiques et un premier appel de 30 minutes offert." />
+<link rel="alternate" hreflang="fr" href="https://maison-malaga.vercel.app/" />
+<link rel="alternate" hreflang="es" href="https://maison-malaga.vercel.app/es/" />
 <meta name="theme-color" content="#FAF7F2" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231A1814'/><text x='16' y='22' font-family='Georgia,serif' font-size='16' font-style='italic' font-weight='400' fill='%23E8B84B' text-anchor='middle' letter-spacing='0'>M</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,31 +19,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="celine.webp" type="image/webp">
 
+<script src="config.js"></script>
 <script>
-/* ════════════════════════════════════════════════════════════════
-   CONFIGURATION — les seuls réglages à compléter pour le pilote
-   ════════════════════════════════════════════════════════════════ */
-window.MM_CONFIG = {
-  // Lien de réservation Cal.com (ex. "https://cal.com/celine/appel-30min").
-  // Vide → les boutons « Réserver » ouvrent WhatsApp avec un message pré-rempli.
-  calUrl: "",
-
-  // URL « action » du formulaire Brevo (…sibforms.com/serve/…).
-  // Vide → le formulaire d’inscription est masqué en production
-  // (il reste visible en local, en mode démonstration).
-  brevoFormAction: "",
-
-  // Liens facultatifs : laissés vides, ils n’apparaissent pas dans le pied de page.
-  instagramUrl: "",
-  email: "",
-
-  // Photos de Céline à Málaga. Déposer les fichiers dans /photos puis indiquer le chemin.
-  // Vide → l’emplacement est masqué en production (encadré pointillé en local).
-  photos: {
-    histoire: "",   // portrait vertical 4:5 — ex. "photos/celine-malaga.jpg"
-    vivre: ""       // portrait vertical 4:5 — ex. "photos/celine-yoga.jpg"
-  }
-};
 (function () {
   var r = document.documentElement, c = window.MM_CONFIG;
   var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
@@ -136,7 +115,12 @@ h1 em,h2 em { font-style:italic; font-weight:400; color:var(--terracotta); }
 .nav a { font-size:.9rem; font-weight:500; color:var(--ink-soft); text-decoration:none; padding:10px 0; transition:color .2s ease; }
 .nav a:hover { color:var(--ink); }
 .hdr .btn { min-height:44px; padding:10px 20px; font-size:.87rem; box-shadow:none; }
+.hdr-right { display:flex; align-items:center; gap:16px; }
+.lang { font-size:.87rem; font-weight:600; color:var(--ink-soft); text-decoration:none; padding:12px 4px; }
+.lang:hover { color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
+.lang .l-short { display:none; }
 @media (max-width:900px) { .nav { display:none; } }
+@media (max-width:480px) { .hdr-right { gap:8px; } .lang .l-long { display:none; } .lang .l-short { display:inline; } }
 @media (max-width:380px) { .logo .a { font-size:1.4rem; } .hdr .btn { padding:10px 16px; } }
 
 /* ─── Hero ─── */
@@ -395,7 +379,10 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
       <a href="#aide">Accompagnement</a>
       <a href="#faq">Questions</a>
     </nav>
-    <a class="btn btn-p js-book" href="#appel">Appel gratuit</a>
+    <div class="hdr-right">
+      <a class="lang" href="es/" lang="es" hreflang="es" aria-label="Versión en español"><span class="l-long">Español</span><span class="l-short">ES</span></a>
+      <a class="btn btn-p js-book" href="#appel">Appel gratuit</a>
+    </div>
   </div>
 </header>
 
@@ -416,7 +403,7 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
         <ul class="micro">
           <li>Gratuit</li>
           <li>Sans engagement</li>
-          <li>100&nbsp;% en français</li>
+          <li>En français ou en espagnol</li>
         </ul>
       </div>
       <div class="portrait">
@@ -437,7 +424,7 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
       <ul>
         <li><div class="v">Oct. <em>2026</em></div><div class="l">Notre arrivée à Málaga</div></li>
         <li><div class="v"><em>En famille</em></div><div class="l">Enfants au lycée français</div></li>
-        <li><div class="v">100<em>&nbsp;%</em></div><div class="l">En français</div></li>
+        <li><div class="v">FR <em>·</em> ES</div><div class="l">Français ou espagnol</div></li>
         <li><div class="v">30<em>&nbsp;min</em></div><div class="l">Premier appel offert</div></li>
       </ul>
     </div>
@@ -540,7 +527,7 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
         </ul>
 
         <!-- Formulaire Brevo — actif dès que MM_CONFIG.brevoFormAction est renseigné.
-             Les noms de champs (EMAIL, PRENOM, PROJET) doivent correspondre aux attributs du compte Brevo. -->
+             Les noms de champs (EMAIL, PRENOM, LANGUE, PROJET) doivent correspondre aux attributs du compte Brevo. -->
         <form class="card-form" id="guides-form" data-if-form novalidate>
           <h3>Recevez chaque guide dès sa sortie</h3>
           <p>Laissez-moi votre e-mail&nbsp;: je vous préviens à chaque nouveau guide.</p>
@@ -551,6 +538,13 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
           <div class="field">
             <label for="f-email">E-mail</label>
             <input id="f-email" name="EMAIL" type="email" autocomplete="email" inputmode="email" required>
+          </div>
+          <div class="field">
+            <label for="f-langue">Langue préférée</label>
+            <select id="f-langue" name="LANGUE">
+              <option value="fr" selected>Français</option>
+              <option value="es">Español</option>
+            </select>
           </div>
           <div class="field">
             <label for="f-projet">Votre projet</label>
@@ -634,7 +628,7 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
         </details>
         <details class="faq">
           <summary><h3>Comment se passe l’appel de 30&nbsp;minutes&nbsp;?</h3><span class="faq-tog" aria-hidden="true">+</span></summary>
-          <div class="faq-ans">En visio ou par téléphone, en français. Vous me parlez de votre projet, je réponds à vos questions et je vous indique les prochaines étapes. C’est gratuit et sans engagement.</div>
+          <div class="faq-ans">En visio ou par téléphone, en français ou en espagnol. Vous me parlez de votre projet, je réponds à vos questions et je vous indique les prochaines étapes. C’est gratuit et sans engagement.</div>
         </details>
         <details class="faq">
           <summary><h3>Est-ce vraiment gratuit&nbsp;?</h3><span class="faq-tog" aria-hidden="true">+</span></summary>
@@ -662,7 +656,7 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
       <div class="rv">
         <div class="eyebrow">Premier appel</div>
         <h2>Parlons de votre projet. <em>30&nbsp;minutes, offertes.</em></h2>
-        <p class="lead">En visio ou par téléphone, en français. Vous repartez avec des réponses claires et une idée précise de la suite.</p>
+        <p class="lead">En visio ou par téléphone, en français ou en espagnol. Vous repartez avec des réponses claires et une idée précise de la suite.</p>
         <div class="cta-row">
           <a class="btn btn-p" id="book-main" target="_blank" rel="noopener"
              href="https://wa.me/33669380419?text=Bonjour%20C%C3%A9line%2C%20je%20souhaite%20r%C3%A9server%20mon%20appel%20gratuit%20de%2030%20minutes.">
@@ -676,7 +670,7 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
         <ul class="micro">
           <li>Gratuit</li>
           <li>Sans engagement</li>
-          <li>En français</li>
+          <li>Français ou espagnol</li>
         </ul>
       </div>
       <div class="expect rv">
@@ -727,12 +721,17 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
 (function () {
   var C = window.MM_CONFIG, d = document, root = d.documentElement;
   var $ = function (id) { return d.getElementById(id); };
+  var base = window.MM_BASE || '';
+  var T = {
+    fr: { slot:'Choisir un créneau', photo:'Photo à ajouter — ', demo:'Mode démonstration : le formulaire n’est pas encore relié à Brevo (MM_CONFIG.brevoFormAction).', ok:'Merci ! Vérifiez votre boîte mail pour confirmer votre inscription.', err:'Une erreur est survenue. Écrivez-moi sur WhatsApp, je vous inscris moi-même.' },
+    es: { slot:'Elegir un horario', photo:'Foto por añadir — ', demo:'Modo demostración: el formulario aún no está conectado a Brevo (MM_CONFIG.brevoFormAction).', ok:'¡Gracias! Revisa tu correo para confirmar la suscripción.', err:'Ha habido un error. Escríbeme por WhatsApp y te apunto yo misma.' }
+  }[root.lang === 'es' ? 'es' : 'fr'];
 
   /* Réservation : Cal.com si configuré, sinon WhatsApp (déjà dans le HTML) */
   if (C.calUrl) {
     d.querySelectorAll('.js-book').forEach(function (a) { a.href = C.calUrl; a.target = '_blank'; a.rel = 'noopener'; });
     $('book-main').href = C.calUrl;
-    $('book-label').textContent = 'Choisir un créneau';
+    $('book-label').textContent = T.slot;
     $('book-ico').remove();
   }
 
@@ -745,11 +744,11 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
     var src = (C.photos || {})[f.dataset.photo];
     if (src) {
       var img = new Image();
-      img.src = src; img.alt = f.dataset.alt || ''; img.loading = 'lazy';
+      img.src = base + src; img.alt = f.dataset.alt || ''; img.loading = 'lazy';
       f.appendChild(img); f.classList.add('has-photo');
     } else {
       f.classList.add('is-missing');
-      f.textContent = 'Photo à ajouter — ' + f.dataset.hint;
+      f.textContent = T.photo + f.dataset.hint;
     }
     var host = f.closest('[data-photo-host]');
     if (host && (src || root.classList.contains('is-local'))) host.classList.add('with-photo');
@@ -763,7 +762,7 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
     if (form.elements.email_address_check.value) return;
     if (!C.brevoFormAction) {
       msg.className = 'form-msg warn';
-      msg.textContent = 'Mode démonstration : le formulaire n’est pas encore relié à Brevo (MM_CONFIG.brevoFormAction).';
+      msg.textContent = T.demo;
       return;
     }
     var btn = form.querySelector('button');
@@ -772,11 +771,11 @@ details.faq[open] .faq-tog { transform:rotate(45deg); }
       .then(function () {
         form.reset();
         msg.className = 'form-msg ok';
-        msg.textContent = 'Merci ! Vérifiez votre boîte mail pour confirmer votre inscription.';
+        msg.textContent = T.ok;
       })
       .catch(function () {
         msg.className = 'form-msg warn';
-        msg.textContent = 'Une erreur est survenue. Écrivez-moi sur WhatsApp, je vous inscris moi-même.';
+        msg.textContent = T.err;
       })
       .then(function () { btn.disabled = false; });
   });

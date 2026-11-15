@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maison à Málaga — Instalarse en Málaga en familia, con Céline</title>
+<meta name="description" content="Céline dejó Annecy por Málaga con su familia en octubre de 2026. Guías prácticas (NIE, barrios, colegios, vivienda) y una primera llamada de 30 minutos gratis." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:site_name" content="Maison à Málaga" />
+<meta property="og:title" content="Instalarse en Málaga en familia, con una madre del liceo francés que acaba de hacerlo" />
+<meta property="og:description" content="Céline dejó Annecy por Málaga con su familia en octubre de 2026. Sus guías prácticas y una primera llamada de 30 minutos gratis." />
+<link rel="alternate" hreflang="fr" href="https://maison-malaga.vercel.app/" />
+<link rel="alternate" hreflang="es" href="https://maison-malaga.vercel.app/es/" />
+<meta name="theme-color" content="#FAF7F2" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231A1814'/><text x='16' y='22' font-family='Georgia,serif' font-size='16' font-style='italic' font-weight='400' fill='%23E8B84B' text-anchor='middle' letter-spacing='0'>M</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../celine.webp" type="image/webp">
+
+<script>window.MM_BASE = "../";</script>
+<script src="../config.js"></script>
+<script>
+(function () {
+  var r = document.documentElement, c = window.MM_CONFIG;
+  var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  r.classList.add('js');
+  if (local) r.classList.add('is-local');
+  if (!c.brevoFormAction && !local) r.classList.add('no-form');
+})();
+</script>
+
+<style>
+/* ─── Tokens ─── */
+:root {
+  --sand:#F4EFE7; --sand-deep:#E8E0D2; --warm-white:#FAF7F2; --paper:#FBF8F3;
+  --terracotta:#C2613A; --terra-dk:#A44A26; --terra-lt:#E89A6F;
+  --navy:#1F2A3D; --olive:#5E6741;
+  --ink:#1A1814; --ink-soft:#4A4640;
+  --amber:#E8B84B; --amber-dk:#D4A132; --amber-lt:#F2D48A;
+  --hair:rgba(26,24,20,.12);
+  --radius:14px;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; scroll-padding-top:88px; -webkit-text-size-adjust:100%; }
+body {
+  font-family:var(--sans); background:var(--warm-white); color:var(--ink);
+  font-size:1rem; line-height:1.65;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img { max-width:100%; display:block; }
+[hidden] { display:none !important; }
+a { color:inherit; }
+:focus-visible { outline:2px solid var(--terracotta); outline-offset:3px; border-radius:4px; }
+.skip { position:absolute; left:-9999px; top:12px; z-index:100; background:var(--ink); color:var(--paper); padding:10px 16px; border-radius:8px; }
+.skip:focus { left:12px; }
+
+.wrap        { max-width:1180px; margin:0 auto; padding:0 32px; }
+.wrap-narrow { max-width:860px;  margin:0 auto; padding:0 32px; }
+.sec { padding:112px 0; position:relative; }
+@media (max-width:768px) { .sec { padding:72px 0; } }
+@media (max-width:640px) { .wrap,.wrap-narrow { padding:0 20px; } }
+
+/* ─── Type ─── */
+h1,h2,h3 { font-family:var(--serif); font-weight:500; letter-spacing:-.015em; color:var(--ink); text-wrap:balance; }
+h1 { font-size:clamp(2.45rem,5vw,4.2rem); line-height:1.04; letter-spacing:-.022em; }
+h2 { font-size:clamp(2rem,3.8vw,3.1rem); line-height:1.1; max-width:21ch; }
+h1 em,h2 em { font-style:italic; font-weight:400; color:var(--terracotta); }
+.lead { font-size:1.08rem; line-height:1.7; color:var(--ink-soft); max-width:58ch; }
+.eyebrow {
+  display:inline-flex; align-items:center; gap:12px; margin-bottom:22px;
+  font-size:.75rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--terra-dk);
+}
+.eyebrow::before { content:""; width:28px; height:1px; background:currentColor; opacity:.6; }
+
+/* ─── Buttons ─── */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:52px; padding:14px 26px; border-radius:999px; border:1px solid transparent;
+  font-family:var(--sans); font-size:.95rem; font-weight:600; line-height:1.2;
+  text-decoration:none; cursor:pointer;
+  transition:transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.btn svg { width:18px; height:18px; flex-shrink:0; fill:currentColor; }
+.btn .arr { transition:transform .2s ease; }
+.btn:hover .arr { transform:translateX(3px); }
+.btn-p { background:var(--amber); color:var(--ink); box-shadow:0 8px 22px -10px rgba(201,154,46,.85); }
+.btn-p:hover { background:var(--amber-dk); transform:translateY(-1px); }
+.btn-s { background:transparent; color:var(--ink); border-color:rgba(26,24,20,.3); }
+.btn-s:hover { border-color:var(--ink); background:rgba(26,24,20,.04); }
+.btn-light { background:var(--paper); color:var(--ink); }
+.btn-light:hover { background:#fff; transform:translateY(-1px); }
+.btn small { font-size:.84em; font-weight:500; opacity:.72; }
+.cta-row { display:flex; flex-wrap:wrap; gap:12px; }
+.micro { display:flex; flex-wrap:wrap; gap:6px 20px; margin-top:22px; list-style:none; font-size:.87rem; color:var(--ink-soft); }
+.micro li { display:flex; align-items:center; gap:8px; }
+.micro li::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--olive); }
+
+/* ─── Header ─── */
+.hdr {
+  position:sticky; top:0; z-index:50;
+  background:rgba(250,247,242,.9);
+  -webkit-backdrop-filter:saturate(140%) blur(14px); backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid transparent; transition:border-color .2s ease;
+}
+.hdr.scrolled { border-bottom-color:var(--hair); }
+.hdr-in { display:flex; align-items:center; justify-content:space-between; gap:24px; height:68px; }
+.logo { display:flex; align-items:baseline; gap:8px; text-decoration:none; color:var(--ink); white-space:nowrap; }
+.logo .a { font-family:var(--serif); font-style:italic; font-size:1.6rem; letter-spacing:-.01em; line-height:1; }
+.logo .b { font-size:.72rem; font-weight:700; letter-spacing:.26em; text-transform:uppercase; }
+.nav { display:flex; gap:30px; }
+.nav a { font-size:.9rem; font-weight:500; color:var(--ink-soft); text-decoration:none; padding:10px 0; transition:color .2s ease; }
+.nav a:hover { color:var(--ink); }
+.hdr .btn { min-height:44px; padding:10px 20px; font-size:.87rem; box-shadow:none; }
+.hdr-right { display:flex; align-items:center; gap:16px; }
+.lang { font-size:.87rem; font-weight:600; color:var(--ink-soft); text-decoration:none; padding:12px 4px; }
+.lang:hover { color:var(--ink); text-decoration:underline; text-underline-offset:4px; }
+.lang .l-short { display:none; }
+@media (max-width:900px) { .nav { display:none; } }
+@media (max-width:480px) { .hdr-right { gap:8px; } .lang .l-long { display:none; } .lang .l-short { display:inline; } }
+@media (max-width:380px) { .logo .a { font-size:1.4rem; } .hdr .btn { padding:10px 16px; } }
+
+/* ─── Hero ─── */
+.hero {
+  padding:64px 0 92px; overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 70% at 90% 6%, rgba(232,184,75,.26), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(194,97,58,.10), transparent 55%),
+    var(--warm-white);
+}
+.hero-grid { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:72px; align-items:center; }
+.hero h1 { margin-bottom:26px; }
+.hero .lead { font-size:1.15rem; margin-bottom:34px; max-width:52ch; }
+.portrait { position:relative; justify-self:end; width:100%; max-width:410px; }
+.portrait::before {
+  content:""; position:absolute; inset:0; z-index:0;
+  border:1px solid var(--terracotta); border-radius:999px 999px 18px 18px;
+  transform:translate(16px,16px); opacity:.55;
+}
+.arch { position:relative; z-index:1; aspect-ratio:4/5; border-radius:999px 999px 18px 18px; overflow:hidden; background:var(--sand-deep); }
+.arch img { width:100%; height:100%; object-fit:cover; object-position:center 16%; }
+.sig {
+  position:absolute; z-index:2; left:-30px; bottom:38px; max-width:230px;
+  background:var(--paper); border:1px solid var(--hair); border-radius:14px; padding:14px 18px;
+  box-shadow:0 18px 40px -22px rgba(26,24,20,.5);
+}
+.sig b { display:block; font-family:var(--serif); font-style:italic; font-weight:500; font-size:1.4rem; line-height:1.1; margin-bottom:4px; }
+.sig span { display:block; font-size:.82rem; line-height:1.4; color:var(--ink-soft); }
+@media (max-width:900px) {
+  .hero { padding:36px 0 68px; }
+  .hero-grid { grid-template-columns:1fr; gap:56px; }
+  .hero .lead { font-size:1.06rem; margin-bottom:28px; }
+  .portrait { justify-self:center; max-width:290px; }
+  .sig { left:-14px; bottom:26px; }
+}
+@media (max-width:480px) { .hero .cta-row .btn { width:100%; } }
+
+/* ─── Facts ─── */
+.facts { background:var(--paper); border-top:1px solid var(--hair); border-bottom:1px solid var(--hair); }
+.facts ul { list-style:none; display:grid; grid-template-columns:repeat(4,1fr); }
+.facts li { padding:30px 20px; text-align:center; border-left:1px solid var(--hair); }
+.facts li:first-child { border-left:0; }
+.facts .v { font-family:var(--serif); font-size:clamp(1.6rem,2.8vw,2.2rem); line-height:1.1; margin-bottom:8px; }
+.facts .v em { font-style:italic; color:var(--terracotta); }
+.facts .l { font-size:.76rem; font-weight:600; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-soft); line-height:1.5; }
+@media (max-width:760px) {
+  .facts ul { grid-template-columns:1fr 1fr; }
+  .facts li { padding:22px 12px; }
+  .facts li:nth-child(odd) { border-left:0; }
+  .facts li:nth-child(n+3) { border-top:1px solid var(--hair); }
+}
+
+/* ─── Questions ─── */
+.questions { background:var(--sand); }
+.head-split { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:end; margin-bottom:60px; }
+@media (max-width:880px) { .head-split { grid-template-columns:1fr; gap:20px; margin-bottom:44px; } }
+.q-grid { list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--hair); border:1px solid var(--hair); border-radius:var(--radius); overflow:hidden; }
+.q-grid li { background:var(--sand); padding:34px 30px; transition:background .25s ease; }
+.q-grid li:hover { background:var(--paper); }
+.q-grid .k { display:block; margin-bottom:16px; font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--terra-dk); }
+.q-grid p { font-family:var(--serif); font-size:1.5rem; line-height:1.22; letter-spacing:-.01em; }
+@media (max-width:980px) { .q-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:620px) { .q-grid { grid-template-columns:1fr; } .q-grid li { padding:26px 22px; } }
+
+/* ─── Histoire ─── */
+.story-grid { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:80px; align-items:start; }
+.story-side { position:sticky; top:108px; }
+.story-side h2 { margin-bottom:24px; }
+.say { margin-top:36px; padding-top:28px; border-top:1px solid var(--hair); max-width:30ch; }
+.say p { font-family:var(--serif); font-style:italic; font-size:1.5rem; line-height:1.35; }
+.say cite { display:block; margin-top:14px; font-style:normal; font-size:.86rem; font-weight:500; color:var(--ink-soft); }
+.steps { list-style:none; border-top:1px solid var(--hair); }
+.steps li { display:grid; grid-template-columns:64px 1fr; gap:20px; padding:30px 0; border-bottom:1px solid var(--hair); }
+.steps .n { font-family:var(--serif); font-style:italic; font-size:2rem; line-height:1; color:var(--terracotta); }
+.steps h3 { font-size:1.65rem; line-height:1.15; margin-bottom:8px; }
+.steps p { color:var(--ink-soft); max-width:52ch; }
+.tag { display:inline-flex; align-items:center; gap:8px; margin-top:4px; margin-bottom:-12px; padding:12px 0; font-size:.8rem; font-weight:600; letter-spacing:.04em; color:var(--terra-dk); text-decoration:none; }
+.tag::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--amber-dk); }
+a.tag:hover { text-decoration:underline; }
+@media (max-width:900px) {
+  .story-grid { grid-template-columns:1fr; gap:44px; }
+  .story-side { position:static; }
+  .steps li { grid-template-columns:44px 1fr; gap:14px; padding:24px 0; }
+}
+
+/* Photo slots — pilotés par MM_CONFIG.photos */
+.slot { display:none; margin-top:36px; width:100%; max-width:340px; aspect-ratio:4/5; border-radius:var(--radius); overflow:hidden; background:var(--sand-deep); }
+.slot.has-photo { display:block; }
+.slot img { width:100%; height:100%; object-fit:cover; }
+.is-local .slot.is-missing {
+  display:flex; align-items:center; justify-content:center; text-align:center; padding:24px;
+  border:1.5px dashed rgba(26,24,20,.4);
+  background:repeating-linear-gradient(135deg,rgba(26,24,20,.05) 0 1px,transparent 1px 14px), var(--sand);
+  font-size:.8rem; font-weight:600; line-height:1.5; color:var(--ink-soft);
+}
+
+/* ─── Guides ─── */
+.guides { background:var(--navy); color:var(--paper); }
+.guides .eyebrow { color:var(--terra-lt); }
+.guides h2 { color:var(--paper); }
+.guides h2 em { color:var(--terra-lt); }
+.guides .lead { color:rgba(250,247,242,.76); }
+.guides-head { margin-bottom:56px; }
+.guides-head h2 { margin-bottom:20px; }
+.guides-grid { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); gap:44px; align-items:start; }
+.g-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(250,247,242,.13); border:1px solid rgba(250,247,242,.13); border-radius:var(--radius); overflow:hidden; }
+.g-list li { background:var(--navy); padding:28px 26px; min-height:164px; display:flex; flex-direction:column; gap:10px; }
+.g-list .k { font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--terra-lt); }
+.g-list h3 { font-size:1.45rem; font-weight:400; line-height:1.2; color:var(--paper); }
+.g-list .soon { margin-top:auto; display:inline-flex; align-items:center; gap:8px; font-size:.8rem; font-weight:500; color:rgba(250,247,242,.66); }
+.g-list .soon::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--amber); }
+.card-form { position:sticky; top:108px; background:var(--paper); color:var(--ink); border-radius:18px; padding:32px 28px; }
+.card-form h3 { font-size:1.7rem; line-height:1.15; margin-bottom:8px; }
+.card-form > p { font-size:.93rem; color:var(--ink-soft); margin-bottom:22px; }
+.field { margin-bottom:14px; }
+.field label { display:block; margin-bottom:6px; font-size:.82rem; font-weight:600; }
+.field input,.field select {
+  width:100%; min-height:48px; padding:10px 14px;
+  border:1px solid rgba(26,24,20,.28); border-radius:10px; background:#fff;
+  font-family:inherit; font-size:1rem; color:var(--ink);
+}
+.field input:focus-visible,.field select:focus-visible { outline:2px solid var(--terracotta); outline-offset:1px; }
+.card-form .btn { width:100%; margin-top:6px; }
+.fine { margin-top:12px; font-size:.8rem; line-height:1.5; color:var(--ink-soft); }
+.form-msg { display:none; margin-top:14px; padding:12px 14px; border-radius:10px; font-size:.9rem; font-weight:500; line-height:1.45; }
+.form-msg.ok   { display:block; background:#E6EFD9; color:#2F3D18; }
+.form-msg.warn { display:block; background:#FBEBC8; color:#54400A; }
+.hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.no-form [data-if-form] { display:none !important; }
+html:not(.no-form) [data-if-noform] { display:none !important; }
+.no-form .guides-grid { grid-template-columns:1fr; }
+.no-form .g-list { grid-template-columns:repeat(3,1fr); }
+@media (max-width:980px) {
+  .guides-grid { grid-template-columns:1fr; }
+  .card-form { position:static; }
+  .no-form .g-list { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:560px) { .g-list,.no-form .g-list { grid-template-columns:1fr; } .g-list li { min-height:0; padding:24px 22px; } .g-list .soon { margin-top:6px; } }
+
+/* ─── Accompagnement ─── */
+.aide-head h2 { margin-bottom:20px; }
+.aide-grid { list-style:none; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:56px; }
+.aide-grid li { display:flex; flex-direction:column; background:var(--paper); border:1px solid var(--hair); border-radius:var(--radius); padding:32px 30px; }
+.aide-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:26px; }
+.aide-grid .n { font-family:var(--serif); font-style:italic; font-size:2.2rem; line-height:1; color:var(--terracotta); }
+.pill { font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:7px 12px; border-radius:999px; background:rgba(94,103,65,.16); color:#3B4326; white-space:nowrap; }
+.aide-grid h3 { font-size:1.7rem; line-height:1.15; margin-bottom:10px; }
+.aide-grid p { font-size:.97rem; color:var(--ink-soft); margin-bottom:26px; }
+.more { margin-top:auto; align-self:flex-start; font-size:.92rem; font-weight:600; color:var(--terra-dk); text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:1px; padding:11px 0; }
+.more:hover { color:var(--ink); }
+.aide-grid li.feat { background:var(--ink); border-color:var(--ink); }
+.aide-grid li.feat h3 { color:var(--paper); }
+.aide-grid li.feat p { color:rgba(250,247,242,.78); }
+.aide-grid li.feat .n { color:var(--terra-lt); }
+.aide-grid li.feat .pill { background:var(--amber); color:var(--ink); }
+.aide-grid li.feat .btn { margin-top:auto; align-self:flex-start; }
+.aide-note { margin-top:36px; font-family:var(--serif); font-style:italic; font-size:1.3rem; line-height:1.4; color:var(--ink-soft); max-width:46ch; }
+@media (max-width:960px) { .aide-grid { grid-template-columns:1fr; margin-top:40px; } }
+
+/* ─── Vivre ici ─── */
+.vivre { background:var(--olive); color:var(--paper); }
+.vivre .eyebrow { color:rgba(250,247,242,.88); }
+.vivre h2 { color:var(--paper); }
+.vivre h2 em { color:var(--amber-lt); }
+.vivre p { margin:22px 0 32px; max-width:54ch; font-size:1.06rem; color:rgba(250,247,242,.9); }
+.vivre-grid { display:grid; grid-template-columns:1fr; gap:56px; align-items:center; }
+.vivre-grid.with-photo { grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); }
+.vivre .slot { margin-top:0; justify-self:end; }
+.is-local .vivre .slot.is-missing { background:rgba(250,247,242,.08); border-color:rgba(250,247,242,.5); color:rgba(250,247,242,.9); }
+@media (max-width:860px) { .vivre-grid.with-photo { grid-template-columns:1fr; } .vivre .slot { justify-self:start; } }
+
+/* ─── FAQ ─── */
+.faq-head { margin-bottom:48px; }
+.faq-list { border-top:1px solid var(--hair); }
+details.faq { border-bottom:1px solid var(--hair); }
+details.faq summary { display:flex; justify-content:space-between; align-items:flex-start; gap:28px; padding:28px 0; list-style:none; cursor:pointer; }
+details.faq summary::-webkit-details-marker { display:none; }
+details.faq summary h3 { flex:1; font-size:1.5rem; font-weight:400; line-height:1.3; }
+.faq-tog { flex-shrink:0; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:400; line-height:1; color:var(--terracotta); transition:transform .3s ease; }
+details.faq[open] .faq-tog { transform:rotate(45deg); }
+.faq-ans { padding:0 56px 30px 0; max-width:66ch; color:var(--ink-soft); }
+@media (max-width:640px) { details.faq summary h3 { font-size:1.3rem; } .faq-ans { padding-right:0; } }
+
+/* ─── Appel ─── */
+.appel { background:var(--ink); color:var(--paper); padding:120px 0; position:relative; overflow:hidden; }
+.appel::before {
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(194,97,58,.22), transparent 55%),
+    radial-gradient(ellipse at 5% 90%, rgba(94,103,65,.18), transparent 50%);
+}
+.appel-grid { position:relative; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:72px; align-items:center; }
+.appel .eyebrow { color:var(--terra-lt); }
+.appel h2 { color:var(--paper); max-width:17ch; }
+.appel h2 em { color:var(--terra-lt); }
+.appel .lead { margin:24px 0 34px; color:rgba(250,247,242,.78); }
+.appel .btn-s { color:var(--paper); border-color:rgba(250,247,242,.38); }
+.appel .btn-s:hover { border-color:var(--paper); background:rgba(250,247,242,.06); }
+.appel .micro { color:rgba(250,247,242,.74); }
+.appel .micro li::before { background:var(--amber); }
+.expect { background:rgba(250,247,242,.05); border:1px solid rgba(250,247,242,.15); border-radius:18px; padding:30px 30px 14px; }
+.expect h3 { font-size:1.5rem; color:var(--paper); margin-bottom:18px; }
+.expect ol { list-style:none; counter-reset:e; }
+.expect li { counter-increment:e; display:grid; grid-template-columns:34px 1fr; gap:12px; padding:16px 0; border-top:1px solid rgba(250,247,242,.13); font-size:.98rem; color:rgba(250,247,242,.88); }
+.expect li::before { content:counter(e); font-family:var(--serif); font-style:italic; font-size:1.5rem; line-height:1.1; color:var(--terra-lt); }
+@media (max-width:900px) { .appel { padding:80px 0; } .appel-grid { grid-template-columns:1fr; gap:44px; } }
+@media (max-width:480px) { .appel .cta-row .btn { width:100%; } }
+
+/* ─── Footer ─── */
+.ftr { background:var(--paper); border-top:1px solid var(--hair); padding:64px 0 36px; }
+.ftr-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:56px; margin-bottom:48px; }
+.ftr .mark { display:block; margin-bottom:14px; font-family:var(--serif); font-style:italic; font-size:2rem; line-height:1.1; }
+.ftr p { max-width:40ch; font-size:.95rem; color:var(--ink-soft); }
+.ftr h4 { margin-bottom:16px; font-size:.75rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); }
+.ftr-col a { display:block; padding:10px 0; font-size:.95rem; text-decoration:none; transition:color .2s ease; }
+.ftr-col a:hover { color:var(--terra-dk); }
+.ftr-btm { padding-top:28px; border-top:1px solid var(--hair); font-size:.84rem; color:var(--ink-soft); }
+@media (max-width:768px) { .ftr-grid { grid-template-columns:1fr; gap:36px; } }
+
+/* ─── WhatsApp flottant — apparaît après le hero, s’efface sur la section Appel ─── */
+.fab {
+  position:fixed; right:20px; bottom:20px; z-index:60; width:56px; height:56px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; background:#1DA851;
+  box-shadow:0 10px 26px -8px rgba(29,168,81,.75);
+  transition:opacity .25s ease, transform .25s ease, visibility 0s linear 0s;
+}
+.fab svg { width:27px; height:27px; fill:#fff; }
+.fab:hover { transform:scale(1.06); }
+.js .fab:not(.show) { opacity:0; visibility:hidden; transform:translateY(12px) scale(.9); transition:opacity .25s ease, transform .25s ease, visibility 0s linear .25s; }
+
+/* ─── Reveal ─── */
+.js .rv { opacity:0; transform:translateY(22px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+.js .rv.in { opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  .js .rv { opacity:1; transform:none; transition:none; }
+  .btn,.btn .arr,.fab,.faq-tog { transition:none !important; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#contenu">Ir al contenido</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+</svg>
+
+<!-- ─── Header ─── -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#" aria-label="Maison à Málaga — inicio"><span class="a">Maison à</span><span class="b">Málaga</span></a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#histoire">Mi historia</a>
+      <a href="#guides">Guías</a>
+      <a href="#aide">Acompañamiento</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+    <div class="hdr-right">
+      <a class="lang" href="../" lang="fr" hreflang="fr" aria-label="Version française"><span class="l-long">Français</span><span class="l-short">FR</span></a>
+      <a class="btn btn-p js-book" href="#appel">Llamada gratis</a>
+    </div>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- ─── Hero ─── -->
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">De Annecy a Málaga · en familia · octubre 2026</div>
+        <h1>Instalarse en Málaga en familia, <em>con una madre del liceo francés que acaba de hacerlo.</em></h1>
+        <p class="lead">Soy Céline, francesa. En octubre de 2026 dejé Annecy por Málaga con toda mi familia. Vivienda, colegio, NIE, barrios: lo organicé todo yo misma, y te enseño cómo, paso a paso.</p>
+        <div class="cta-row">
+          <a class="btn btn-p js-book" href="#appel">Reservar mi llamada gratis <small>· 30&nbsp;min</small></a>
+          <a class="btn btn-s" href="#guides" data-if-form>Recibir mis guías</a>
+          <a class="btn btn-s" href="#histoire" data-if-noform>Leer mi historia</a>
+        </div>
+        <ul class="micro">
+          <li>Gratis</li>
+          <li>Sin compromiso</li>
+          <li>En español o en francés</li>
+        </ul>
+      </div>
+      <div class="portrait">
+        <div class="arch">
+          <picture>
+            <source srcset="../celine.webp" type="image/webp">
+            <img src="../celine.jpg" width="880" height="1173" alt="Céline, fundadora de Maison à Málaga" fetchpriority="high">
+          </picture>
+        </div>
+        <div class="sig"><b>Céline</b><span>Annecy → Málaga, octubre&nbsp;2026</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Faits ─── -->
+  <div class="facts">
+    <div class="wrap">
+      <ul>
+        <li><div class="v">Oct. <em>2026</em></div><div class="l">Nuestra llegada a Málaga</div></li>
+        <li><div class="v"><em>En familia</em></div><div class="l">Hijos en el liceo francés</div></li>
+        <li><div class="v">ES <em>·</em> FR</div><div class="l">Español o francés</div></li>
+        <li><div class="v">30<em>&nbsp;min</em></div><div class="l">Primera llamada gratis</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── Vos questions ─── -->
+  <section class="sec questions">
+    <div class="wrap">
+      <div class="head-split rv">
+        <div>
+          <div class="eyebrow">Tus preguntas</div>
+          <h2>Sueñas con vivir al sol… <em>¿pero por dónde empezar?</em></h2>
+        </div>
+        <p class="lead">Estas preguntas me las hacía yo hace unos meses, desde Francia. Hoy las respondo con lo que he aprendido aquí.</p>
+      </div>
+      <ul class="q-grid rv">
+        <li><span class="k">Familia</span><p>¿Qué colegio elegir, y dónde vivir para estar cerca?</p></li>
+        <li><span class="k">Alquiler</span><p>¿Cómo alquilar sin nómina española?</p></li>
+        <li><span class="k">Seguridad</span><p>¿Cómo evitar los anuncios falsos?</p></li>
+        <li><span class="k">Presupuesto</span><p>¿Qué presupuesto hace falta para vivir aquí?</p></li>
+        <li><span class="k">Distancia</span><p>¿Cómo visitar un piso desde el extranjero?</p></li>
+        <li><span class="k">Trámites</span><p>NIE, empadronamiento, banco: ¿por dónde empezar?</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── Mon histoire ─── -->
+  <section class="sec" id="histoire">
+    <div class="wrap story-grid">
+      <div class="story-side rv">
+        <div class="eyebrow">Mi historia</div>
+        <h2>De Annecy a Málaga: <em>nuestra mudanza, paso a paso.</em></h2>
+        <p class="lead">No soy una agencia. Soy una madre francesa que lo organizó todo ella misma, en otoño de 2026. Este es el camino que seguimos, y el que te ayudo a preparar.</p>
+        <blockquote class="say">
+          <p>«Todo lo que me habría gustado que me explicaran antes de venir, te lo cuento.»</p>
+          <cite>Céline — en Málaga desde octubre de 2026</cite>
+        </blockquote>
+        <figure class="slot" data-photo="histoire" data-alt="Céline en Málaga" data-hint="Céline en Málaga (retrato vertical 4:5)"></figure>
+      </div>
+      <ol class="steps rv">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <h3>La decisión</h3>
+            <p>Dejar Annecy, elegir Málaga y no otra ciudad, fijar una fecha. Las preguntas que conviene hacerse antes de lanzarse.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <h3>El colegio</h3>
+            <p>Matricular a los niños en el liceo francés de Málaga: los plazos, la documentación y cómo condiciona la elección del barrio.</p>
+            <a class="tag" href="#guides">Guía en preparación</a>
+          </div>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <div>
+            <h3>La vivienda</h3>
+            <p>Buscar a distancia, reconocer los anuncios serios, preparar la documentación sin nómina española, visitar, firmar.</p>
+            <a class="tag" href="#guides">Guía en preparación</a>
+          </div>
+        </li>
+        <li>
+          <span class="n">04</span>
+          <div>
+            <h3>Los trámites</h3>
+            <p>NIE, empadronamiento, banco, sanidad: en qué orden hacerlos y qué conviene saber antes de cada cita.</p>
+            <a class="tag" href="#guides">Guía en preparación</a>
+          </div>
+        </li>
+        <li>
+          <span class="n">05</span>
+          <div>
+            <h3>Las primeras semanas</h3>
+            <p>Encontrar tu sitio: los parques, las actividades de los niños, las tiendas, las direcciones útiles del día a día.</p>
+            <a class="tag" href="#guides">Guía en preparación</a>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─── Guides ─── -->
+  <section class="sec guides" id="guides">
+    <div class="wrap">
+      <div class="guides-head rv">
+        <div class="eyebrow">Guías prácticas</div>
+        <h2>Todo lo que he aprendido, <em>lo comparto.</em></h2>
+        <p class="lead">Publico mis guías poco a poco, en vídeo y por escrito.<span data-if-form> Apúntate para recibirlas en cuanto salgan.</span></p>
+      </div>
+      <div class="guides-grid rv">
+        <ul class="g-list">
+          <li><span class="k">Trámites</span><h3>Conseguir el NIE, paso a paso</h3><span class="soon">Próximamente</span></li>
+          <li><span class="k">Barrios</span><h3>Dónde vivir en Málaga en familia</h3><span class="soon">Próximamente</span></li>
+          <li><span class="k">Colegios</span><h3>El liceo francés y las demás opciones</h3><span class="soon">Próximamente</span></li>
+          <li><span class="k">Vivienda</span><h3>Alquilar sin nómina española</h3><span class="soon">Próximamente</span></li>
+          <li><span class="k">Niños</span><h3>Parques, actividades y planes</h3><span class="soon">Próximamente</span></li>
+          <li><span class="k">Presupuesto</span><h3>Lo que cuesta de verdad vivir aquí</h3><span class="soon">Próximamente</span></li>
+        </ul>
+
+        <!-- Formulaire Brevo — actif dès que MM_CONFIG.brevoFormAction est renseigné.
+             Les noms de champs (EMAIL, PRENOM, LANGUE, PROJET) doivent correspondre aux attributs du compte Brevo. -->
+        <form class="card-form" id="guides-form" data-if-form novalidate>
+          <h3>Recibe cada guía en cuanto salga</h3>
+          <p>Déjame tu correo y te aviso con cada guía nueva.</p>
+          <div class="field">
+            <label for="f-prenom">Nombre</label>
+            <input id="f-prenom" name="PRENOM" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Correo electrónico</label>
+            <input id="f-email" name="EMAIL" type="email" autocomplete="email" inputmode="email" required>
+          </div>
+          <div class="field">
+            <label for="f-langue">Idioma preferido</label>
+            <select id="f-langue" name="LANGUE">
+              <option value="es" selected>Español</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-projet">Tu proyecto</label>
+            <select id="f-projet" name="PROJET">
+              <option value="Je me renseigne">Me estoy informando</option>
+              <option value="Moins de 6 mois">Mudanza en menos de 6 meses</option>
+              <option value="6 à 12 mois">Mudanza en 6 a 12 meses</option>
+              <option value="Plus d’un an">Mudanza en más de un año</option>
+              <option value="Déjà à Málaga">Ya vivo en Málaga</option>
+            </select>
+          </div>
+          <div class="hp" aria-hidden="true"><label>No rellenar <input type="text" name="email_address_check" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="locale" value="es">
+          <button class="btn btn-p" type="submit">Recibir las guías</button>
+          <p class="fine">Un correo con cada guía nueva, nada más. Te das de baja con un clic.</p>
+          <div class="form-msg" id="form-msg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Accompagnement ─── -->
+  <section class="sec" id="aide">
+    <div class="wrap">
+      <div class="aide-head rv">
+        <div class="eyebrow">Acompañamiento</div>
+        <h2>Cómo puedo <em>ayudarte.</em></h2>
+        <p class="lead">Sencillo y sin compromiso: empezamos por hablar.</p>
+      </div>
+      <ul class="aide-grid rv">
+        <li class="feat">
+          <div class="aide-top"><span class="n">01</span><span class="pill">Gratis · 30&nbsp;min</span></div>
+          <h3>Una primera llamada</h3>
+          <p>Me cuentas tu proyecto: tu familia, tus fechas, tu presupuesto. Respondo a tus preguntas y te digo por dónde empezar.</p>
+          <a class="btn btn-p js-book" href="#appel">Reservar mi llamada <span class="arr" aria-hidden="true">→</span></a>
+        </li>
+        <li>
+          <div class="aide-top"><span class="n">02</span><span class="pill">Gratis</span></div>
+          <h3>Guías concretas</h3>
+          <p>NIE, barrios, colegios, vivienda: mis apuntes sobre el terreno, que amplío a medida que nos instalamos.</p>
+          <a class="more" href="#guides">Ver las guías</a>
+        </li>
+        <li>
+          <div class="aide-top"><span class="n">03</span><span class="pill">A petición</span></div>
+          <h3>Alguien aquí, por ti</h3>
+          <p>Visitar un piso por ti y grabarlo, revisar un anuncio, ayudarte a preparar la documentación. Te doy un precio claro antes de empezar.</p>
+          <a class="more" href="#appel">Hablarlo en la llamada</a>
+        </li>
+      </ul>
+      <p class="aide-note rv">No soy una agencia inmobiliaria. Te aconsejo como aconsejaría a una amiga que prepara su mudanza.</p>
+    </div>
+  </section>
+
+  <!-- ─── Vivre ici ─── -->
+  <section class="sec vivre" id="vivre">
+    <div class="wrap vivre-grid" data-photo-host>
+      <div class="rv">
+        <div class="eyebrow">Vivir aquí</div>
+        <h2>¿Ya vivís en Málaga? <em>Quedemos.</em></h2>
+        <p>El yoga y el bienestar forman parte de mi día a día. Estoy preparando encuentros para las familias del entorno francófono de Málaga: práctica al aire libre, quedadas y ayuda entre familias. Dime si te apetece.</p>
+        <a class="btn btn-light" target="_blank" rel="noopener"
+           href="https://wa.me/33669380419?text=Hola%20C%C3%A9line%2C%20ya%20vivo%20en%20M%C3%A1laga%20y%20me%20interesan%20tus%20encuentros.">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>Me interesa
+        </a>
+      </div>
+      <figure class="slot" data-photo="vivre" data-alt="Céline practicando yoga en Málaga" data-hint="Céline, yoga o aire libre en Málaga (retrato vertical 4:5)"></figure>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="sec" id="faq">
+    <div class="wrap-narrow">
+      <div class="faq-head rv">
+        <div class="eyebrow">Preguntas frecuentes</div>
+        <h2>Lo que me <em>preguntan a menudo.</em></h2>
+      </div>
+      <div class="faq-list rv">
+        <details class="faq" open>
+          <summary><h3>¿Quién eres y desde cuándo vives en Málaga?</h3><span class="faq-tog" aria-hidden="true">+</span></summary>
+          <div class="faq-ans">Me llamo Céline y soy francesa. Llegué de Annecy en octubre de 2026 con toda mi familia, y mis hijos van al liceo francés. No soy una agencia: comparto lo que acabo de vivir y ayudo a otras familias a preparar su propia mudanza.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Cómo es la llamada de 30&nbsp;minutos?</h3><span class="faq-tog" aria-hidden="true">+</span></summary>
+          <div class="faq-ans">Por videollamada o por teléfono, en español o en francés. Me cuentas tu proyecto, respondo a tus preguntas y te indico los siguientes pasos. Es gratis y sin compromiso.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>¿De verdad es gratis?</h3><span class="faq-tog" aria-hidden="true">+</span></summary>
+          <div class="faq-ans">Sí. La llamada y las guías son gratis. Si después quieres que te eche una mano aquí, por ejemplo con una visita grabada, te doy un precio claro antes de empezar. No se cobra nada sin tu acuerdo.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Se puede alquilar en España sin nómina española?</h3><span class="faq-tog" aria-hidden="true">+</span></summary>
+          <div class="faq-ans">Sí, es posible en algunos casos. Hay que presentar una documentación sólida: ingresos, ahorros, contrato de trabajo, actividad por cuenta propia, garantías o pago por adelantado, según la situación.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Eres una agencia inmobiliaria?</h3><span class="faq-tog" aria-hidden="true">+</span></summary>
+          <div class="faq-ans">No. No vendo ni alquilo ninguna vivienda. Te ayudo a buscar, entender, comprobar y comparar, para avanzar con más seguridad.</div>
+        </details>
+        <details class="faq">
+          <summary><h3>¿Conoces toda la Costa del Sol?</h3><span class="faq-tog" aria-hidden="true">+</span></summary>
+          <div class="faq-ans">Vivo en Málaga y es la ciudad que mejor conozco. Del resto de la costa (Benalmádena, Fuengirola, Marbella, Estepona) te digo con franqueza lo que sé y lo que todavía no.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Appel ─── -->
+  <section class="appel" id="appel">
+    <div class="wrap appel-grid">
+      <div class="rv">
+        <div class="eyebrow">Primera llamada</div>
+        <h2>Hablemos de tu proyecto. <em>30&nbsp;minutos, gratis.</em></h2>
+        <p class="lead">Por videollamada o por teléfono, en español o en francés. Te llevas respuestas claras y una idea precisa de lo que viene después.</p>
+        <div class="cta-row">
+          <a class="btn btn-p" id="book-main" target="_blank" rel="noopener"
+             href="https://wa.me/33669380419?text=Hola%20C%C3%A9line%2C%20quiero%20reservar%20mi%20llamada%20gratis%20de%2030%20minutos.">
+            <svg aria-hidden="true" id="book-ico"><use href="#i-wa"/></svg><span id="book-label">Reservar por WhatsApp</span>
+          </a>
+          <a class="btn btn-s" target="_blank" rel="noopener"
+             href="https://wa.me/33669380419?text=Hola%20C%C3%A9line%2C%20tengo%20una%20pregunta%20sobre%20instalarse%20en%20M%C3%A1laga.">
+            Hacer una pregunta
+          </a>
+        </div>
+        <ul class="micro">
+          <li>Gratis</li>
+          <li>Sin compromiso</li>
+          <li>Español o francés</li>
+        </ul>
+      </div>
+      <div class="expect rv">
+        <h3>Durante la llamada</h3>
+        <ol>
+          <li>Me cuentas tu proyecto: familia, fechas, presupuesto.</li>
+          <li>Respondo a tus preguntas con lo que vivo aquí.</li>
+          <li>Te llevas los siguientes pasos, en orden.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── Footer ─── -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <span class="mark">Maison à Málaga</span>
+        <p>Céline, francesa instalada en Málaga con su familia, ayuda a las familias del entorno francófono a preparar su vida en la Costa del Sol.</p>
+      </div>
+      <div class="ftr-col">
+        <h4>Navegación</h4>
+        <a href="#histoire">Mi historia</a>
+        <a href="#guides">Guías</a>
+        <a href="#aide">Acompañamiento</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#appel">Primera llamada</a>
+      </div>
+      <div class="ftr-col">
+        <h4>Contacto</h4>
+        <a href="https://wa.me/33669380419" target="_blank" rel="noopener">WhatsApp · +33&nbsp;6&nbsp;69&nbsp;38&nbsp;04&nbsp;19</a>
+        <a id="lnk-email" hidden></a>
+        <a id="lnk-insta" target="_blank" rel="noopener" hidden>Instagram</a>
+      </div>
+    </div>
+    <div class="ftr-btm">© 2026 Maison à Málaga — Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/33669380419" target="_blank" rel="noopener" aria-label="Escribir a Céline por WhatsApp">
+  <svg aria-hidden="true"><use href="#i-wa"/></svg>
+</a>
+
+<script>
+(function () {
+  var C = window.MM_CONFIG, d = document, root = d.documentElement;
+  var $ = function (id) { return d.getElementById(id); };
+  var base = window.MM_BASE || '';
+  var T = {
+    fr: { slot:'Choisir un créneau', photo:'Photo à ajouter — ', demo:'Mode démonstration : le formulaire n’est pas encore relié à Brevo (MM_CONFIG.brevoFormAction).', ok:'Merci ! Vérifiez votre boîte mail pour confirmer votre inscription.', err:'Une erreur est survenue. Écrivez-moi sur WhatsApp, je vous inscris moi-même.' },
+    es: { slot:'Elegir un horario', photo:'Foto por añadir — ', demo:'Modo demostración: el formulario aún no está conectado a Brevo (MM_CONFIG.brevoFormAction).', ok:'¡Gracias! Revisa tu correo para confirmar la suscripción.', err:'Ha habido un error. Escríbeme por WhatsApp y te apunto yo misma.' }
+  }[root.lang === 'es' ? 'es' : 'fr'];
+
+  /* Réservation : Cal.com si configuré, sinon WhatsApp (déjà dans le HTML) */
+  if (C.calUrl) {
+    d.querySelectorAll('.js-book').forEach(function (a) { a.href = C.calUrl; a.target = '_blank'; a.rel = 'noopener'; });
+    $('book-main').href = C.calUrl;
+    $('book-label').textContent = T.slot;
+    $('book-ico').remove();
+  }
+
+  /* Liens facultatifs */
+  if (C.email)        { var e = $('lnk-email'); e.href = 'mailto:' + C.email; e.textContent = C.email; e.hidden = false; }
+  if (C.instagramUrl) { var i = $('lnk-insta'); i.href = C.instagramUrl; i.hidden = false; }
+
+  /* Emplacements photo */
+  d.querySelectorAll('.slot').forEach(function (f) {
+    var src = (C.photos || {})[f.dataset.photo];
+    if (src) {
+      var img = new Image();
+      img.src = base + src; img.alt = f.dataset.alt || ''; img.loading = 'lazy';
+      f.appendChild(img); f.classList.add('has-photo');
+    } else {
+      f.classList.add('is-missing');
+      f.textContent = T.photo + f.dataset.hint;
+    }
+    var host = f.closest('[data-photo-host]');
+    if (host && (src || root.classList.contains('is-local'))) host.classList.add('with-photo');
+  });
+
+  /* Inscription aux guides (Brevo) */
+  var form = $('guides-form'), msg = $('form-msg');
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    if (form.elements.email_address_check.value) return;
+    if (!C.brevoFormAction) {
+      msg.className = 'form-msg warn';
+      msg.textContent = T.demo;
+      return;
+    }
+    var btn = form.querySelector('button');
+    btn.disabled = true;
+    fetch(C.brevoFormAction, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+      .then(function () {
+        form.reset();
+        msg.className = 'form-msg ok';
+        msg.textContent = T.ok;
+      })
+      .catch(function () {
+        msg.className = 'form-msg warn';
+        msg.textContent = T.err;
+      })
+      .then(function () { btn.disabled = false; });
+  });
+
+  /* Apparition au défilement */
+  var rv = d.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+    rv.forEach(function (el) { io.observe(el); });
+
+    /* WhatsApp flottant : visible hors du hero et hors de la section Appel */
+    var fab = $('fab'), seen = { hero: true, appel: false };
+    var fo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { seen[en.target.id] = en.isIntersecting; });
+      fab.classList.toggle('show', !seen.hero && !seen.appel);
+    }, { threshold: 0.12 });
+    fo.observe($('hero')); fo.observe($('appel'));
+  } else {
+    rv.forEach(function (el) { el.classList.add('in'); });
+    $('fab').classList.add('show');
+  }
+
+  /* Filet du header au défilement */
+  var hdr = $('hdr');
+  var onScroll = function () { hdr.classList.toggle('scrolled', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
